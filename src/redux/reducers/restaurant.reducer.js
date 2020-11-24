@@ -1,4 +1,4 @@
-const restaurantReducer = (state = {}, action) => {
+const restaurantReducer = (state = [], action) => {
   switch (action.type) {
     case 'SET_RESTAURANTS':
       return action.payload;
