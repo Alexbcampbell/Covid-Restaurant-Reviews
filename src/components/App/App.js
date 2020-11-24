@@ -21,6 +21,8 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
 import './App.css';
+import HomePage from '../HomePage/HomePage';
+import RestaurantList from '../RestaurantList/RestaurantList';
 
 class App extends Component {
   componentDidMount() {
@@ -42,6 +44,20 @@ class App extends Component {
               exact
               path="/about"
               component={AboutPage}
+            />
+
+            <Route
+              // shows AboutPage at all times (logged in or not)
+              exact
+              path="/homepage"
+              component={HomePage}
+            />
+
+            <Route
+              // shows AboutPage at all times (logged in or not)
+              exact
+              path="/restaurantlist"
+              component={RestaurantList}
             />
 
             {/* For protected routes, the view could show one of several things on the same route.
