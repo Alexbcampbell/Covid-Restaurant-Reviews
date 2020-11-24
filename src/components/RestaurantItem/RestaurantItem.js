@@ -29,9 +29,12 @@ class RestaurantItem extends Component {
                 {restaurants.name}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-                <p>{restaurants.street}</p>
-                <p>{restaurants.city}</p>
-                <p>{restaurants.state}</p>
+                <ul>
+                  <li>{restaurants.street}</li>
+                  <li>
+                    {restaurants.city}, {restaurants.state}
+                  </li>
+                </ul>
               </Typography>
             </CardContent>
           </CardActionArea>

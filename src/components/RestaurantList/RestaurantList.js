@@ -32,7 +32,9 @@ class RestaurantList extends Component {
         <div>
           <h2>Choose a restaurant to see its reviews!</h2>
         </div>
-        <Grid container>{restaurantArray}</Grid>
+        <Grid container spacing={3}>
+          {restaurantArray}
+        </Grid>
       </div>
     );
   }
