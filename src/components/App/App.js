@@ -19,6 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import NewRestaurantForm from '../NewRestaurantForm/NewRestaurantForm';
 
 import './App.css';
 import HomePage from '../HomePage/HomePage';
@@ -47,14 +48,14 @@ class App extends Component {
             />
 
             <Route
-              // shows AboutPage at all times (logged in or not)
+              // shows HomePage at all times (logged in or not)
               exact
               path="/homepage"
               component={HomePage}
             />
 
             <Route
-              // shows AboutPage at all times (logged in or not)
+              // shows RestaurantList at all times (logged in or not)
               exact
               path="/restaurantlist"
               component={RestaurantList}
@@ -76,6 +77,13 @@ class App extends Component {
               exact
               path="/info"
               component={InfoPage}
+            />
+
+            <ProtectedRoute
+              // logged in shows NewRestaurantForm else shows LoginPage
+              exact
+              path="/add"
+              component={NewRestaurantForm}
             />
 
             {/* When a value is supplied for the authRedirect prop the user will

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import { Grid, TextField, InputLabel, Select, Button } from '@material-ui/core';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -69,21 +70,22 @@ class NewRestaurantForm extends Component {
               variant="outlined"
               onChange={this.handleNewRestaurantChange('city')}
             />
-            <InputLabel id="demo-simple-select-filled-label">Genre</InputLabel>
+            <InputLabel id="demo-simple-select-filled-label">State</InputLabel>
             <Select
               labelId="demo-simple-select-filled-label"
               id="demo-simple-select-filled"
               value={this.state.input}
               onChange={this.handleNewRestaurantChange('state')}
             >
-              {selectGenre}
+              <option>Missouri</option>
+              <option>Kansas</option>
             </Select>
           </div>
           <div>
             <Button
               onClick={this.addNewRestaurant}
               variant="contained"
-              color="primary"
+              color="inherit"
             >
               Save
             </Button>
