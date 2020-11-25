@@ -42,20 +42,60 @@ class NewRestaurantForm extends Component {
     });
   };
 
+  onCancel = (event) => {
+    this.props.history.push('/homepage');
+  };
+
   render() {
     return (
       <div>
-        <div>
-          <h2>Add a new restaurant!</h2>
-        </div>
-        <div>
-          <input
-            placeholder="Name"
-            type="text"
-            value={this.state.newRestaurant.name}
-            onChange={this.handleNewRestaurantChange('name')}
-          />
-        </div>
+        <Grid container direction="column" justify="center" alignItems="center">
+          <div>
+            <TextField
+              id="outlined-basic"
+              label="Restaurant Name"
+              variant="outlined"
+              onChange={this.handleNewRestaurantChange('name')}
+            />
+            <TextField
+              id="outlined-basic"
+              label="Street Address"
+              variant="outlined"
+              onChange={this.handleNewRestaurantChange('street')}
+            />
+            <TextField
+              id="outlined-basic"
+              label="City"
+              variant="outlined"
+              onChange={this.handleNewRestaurantChange('city')}
+            />
+            <InputLabel id="demo-simple-select-filled-label">Genre</InputLabel>
+            <Select
+              labelId="demo-simple-select-filled-label"
+              id="demo-simple-select-filled"
+              value={this.state.input}
+              onChange={this.handleNewRestaurantChange('state')}
+            >
+              {selectGenre}
+            </Select>
+          </div>
+          <div>
+            <Button
+              onClick={this.addNewRestaurant}
+              variant="contained"
+              color="primary"
+            >
+              Save
+            </Button>
+            <Button
+              onClick={this.onCancel}
+              variant="contained"
+              color="secondary"
+            >
+              Cancel
+            </Button>
+          </div>
+        </Grid>
       </div>
     );
   }
