@@ -32,27 +32,33 @@ class HomePage extends Component {
     );
 
     return (
-      <Grid
-        container
-        spacing={6}
-        direction="column"
-        justify="center"
-        alignItems="center"
-      >
-        <Grid>
-          <MapBoxComponent />
-        </Grid>
+      <div style={{ padding: 20 }}>
         <Grid
           container
-          spacing={4}
-          direction="row"
+          spacing={6}
+          direction="column"
           justify="center"
           alignItems="center"
         >
-          {' '}
-          {restaurantArray}
+          <div style={{ padding: 20 }}>
+            <Grid>
+              <MapBoxComponent />
+            </Grid>
+            <div style={{ padding: 20 }}>
+              <Grid
+                container
+                spacing={4}
+                direction="row"
+                justify="center"
+                alignItems="stretch"
+              >
+                {' '}
+                {restaurantArray}
+              </Grid>
+            </div>
+          </div>
         </Grid>
-      </Grid>
+      </div>
     );
   }
 }

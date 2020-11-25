@@ -29,12 +29,28 @@ class RestaurantList extends Component {
     );
     return (
       <div>
-        <div>
-          <h2>Choose a restaurant to see its reviews!</h2>
+        <div style={{ padding: 20 }}>
+          <Grid
+            container
+            spacing={3}
+            direction="row"
+            justify="space-evenly"
+            alignItems="stretch"
+          >
+            <h2>Choose a restaurant to see its reviews!</h2>
+          </Grid>
         </div>
-        <Grid container spacing={3}>
-          {restaurantArray}
-        </Grid>
+        <div style={{ padding: 20 }}>
+          <Grid
+            container
+            spacing={3}
+            direction="row"
+            justify="center"
+            alignItems="stretch"
+          >
+            {restaurantArray}
+          </Grid>
+        </div>
       </div>
     );
   }

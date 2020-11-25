@@ -30,8 +30,8 @@ class RestaurantItem extends Component {
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
                 <ul>
-                  <li>{restaurants.street}</li>
-                  <li>
+                  <li className="cardList">{restaurants.street}</li>
+                  <li className="cardList">
                     {restaurants.city}, {restaurants.state}
                   </li>
                 </ul>
