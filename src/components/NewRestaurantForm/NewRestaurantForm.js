@@ -70,7 +70,13 @@ class NewRestaurantForm extends Component {
               variant="outlined"
               onChange={this.handleNewRestaurantChange('city')}
             />
-            <InputLabel id="demo-simple-select-filled-label">State</InputLabel>
+            <TextField
+              id="outlined-basic"
+              label="State"
+              variant="outlined"
+              onChange={this.handleNewRestaurantChange('state')}
+            />
+            {/* <InputLabel id="demo-simple-select-filled-label">State</InputLabel>
             <Select
               labelId="demo-simple-select-filled-label"
               id="demo-simple-select-filled"
@@ -79,7 +85,7 @@ class NewRestaurantForm extends Component {
             >
               <option>Missouri</option>
               <option>Kansas</option>
-            </Select>
+            </Select> */}
           </div>
           <div>
             <Button
