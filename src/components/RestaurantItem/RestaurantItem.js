@@ -33,7 +33,10 @@ class RestaurantItem extends Component {
     return (
       <div>
         <Card>
-          <CardActionArea key={restaurants.id}>
+          <CardActionArea
+            key={restaurants.id}
+            onClick={this.handleCLickDetails}
+          >
             <ReactMapGL
               {...this.state.viewport}
               width="25vw"
@@ -57,7 +60,11 @@ class RestaurantItem extends Component {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button size="small" color="primary">
+            <Button
+              size="small"
+              color="primary"
+              onClick={this.handleCLickDetails}
+            >
               Details
             </Button>
           </CardActions>
