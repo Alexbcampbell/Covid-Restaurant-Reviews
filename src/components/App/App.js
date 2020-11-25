@@ -24,6 +24,7 @@ import NewRestaurantForm from '../NewRestaurantForm/NewRestaurantForm';
 import './App.css';
 import HomePage from '../HomePage/HomePage';
 import RestaurantList from '../RestaurantList/RestaurantList';
+import ReviewPage from '../ReviewPage/ReviewPage';
 
 class App extends Component {
   componentDidMount() {
@@ -84,6 +85,13 @@ class App extends Component {
               exact
               path="/add"
               component={NewRestaurantForm}
+            />
+
+            <ProtectedRoute
+              // logged in shows NewRestaurantForm else shows LoginPage
+              exact
+              path="/review"
+              component={ReviewPage}
             />
 
             {/* When a value is supplied for the authRedirect prop the user will
