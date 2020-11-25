@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import { Grid, TextField, InputLabel, Select, Button } from '@material-ui/core';
+import {
+  Grid,
+  TextField,
+  InputLabel,
+  Select,
+  Button,
+  Box,
+} from '@material-ui/core';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -87,21 +94,25 @@ class NewRestaurantForm extends Component {
               <option>Kansas</option>
             </Select> */}
           </div>
-          <div>
-            <Button
-              onClick={this.addNewRestaurant}
-              variant="contained"
-              color="inherit"
-            >
-              Save
-            </Button>
-            <Button
-              onClick={this.onCancel}
-              variant="contained"
-              color="secondary"
-            >
-              Cancel
-            </Button>
+          <div style={{ padding: 20 }}>
+            <Box mt={2}>
+              <Button
+                onClick={this.addNewRestaurant}
+                variant="contained"
+                color="inherit"
+              >
+                Save
+              </Button>
+            </Box>
+            <Box mt={2}>
+              <Button
+                onClick={this.onCancel}
+                variant="contained"
+                color="secondary"
+              >
+                Cancel
+              </Button>
+            </Box>
           </div>
         </Grid>
       </div>
