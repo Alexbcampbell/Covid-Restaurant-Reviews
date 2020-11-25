@@ -106,16 +106,6 @@ class ReviewPage extends Component {
               variant="outlined"
               onChange={this.handleNewReviewChange('state')}
             />
-            {/* <InputLabel id="demo-simple-select-filled-label">State</InputLabel>
-            <Select
-              labelId="demo-simple-select-filled-label"
-              id="demo-simple-select-filled"
-              value={this.state.input}
-              onChange={this.handleNewRestaurantChange('state')}
-            >
-              <option>Missouri</option>
-              <option>Kansas</option>
-            </Select> */}
           </div>
           <div style={{ padding: 20 }}>
             <Box pt={1}>
@@ -124,7 +114,7 @@ class ReviewPage extends Component {
                 variant="contained"
                 color="inherit"
               >
-                Save
+                Submit
               </Button>
             </Box>
             <Box pt={1}>

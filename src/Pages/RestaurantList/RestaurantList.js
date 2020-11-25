@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { Grid } from '@material-ui/core';
-import RestaurantItem from '../RestaurantItem/RestaurantItem';
+import RestaurantItem from '../../components/RestaurantItem/RestaurantItem';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace

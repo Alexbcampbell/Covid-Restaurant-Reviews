@@ -13,18 +13,18 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
-import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
+import AboutPage from '../../Pages/AboutPage/AboutPage';
+import UserPage from '../../Pages/UserPage/UserPage';
+import InfoPage from '../../Pages/InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import NewRestaurantForm from '../NewRestaurantForm/NewRestaurantForm';
 
 import './App.css';
-import HomePage from '../HomePage/HomePage';
-import RestaurantList from '../RestaurantList/RestaurantList';
-import ReviewPage from '../ReviewPage/ReviewPage';
+import HomePage from '../../Pages/HomePage/HomePage';
+import RestaurantList from '../../Pages/RestaurantList/RestaurantList';
+import ReviewPage from '../../Pages/ReviewPage/ReviewPage';
 
 class App extends Component {
   componentDidMount() {
