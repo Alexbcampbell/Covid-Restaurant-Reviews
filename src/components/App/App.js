@@ -16,9 +16,9 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import AboutPage from '../../Pages/AboutPage/AboutPage';
 import UserPage from '../../Pages/UserPage/UserPage';
 import InfoPage from '../../Pages/InfoPage/InfoPage';
-import LandingPage from '../LandingPage/LandingPage';
-import LoginPage from '../LoginPage/LoginPage';
-import RegisterPage from '../RegisterPage/RegisterPage';
+import LandingPage from '../../Pages/LandingPage/LandingPage';
+import LoginPage from '../../Pages/LoginPage/LoginPage';
+import RegisterPage from '../../Pages/RegisterPage/RegisterPage';
 import NewRestaurantForm from '../NewRestaurantForm/NewRestaurantForm';
 
 import './App.css';

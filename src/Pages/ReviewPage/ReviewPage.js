@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import Rating from '@material-ui/lab/Rating';
 import {
   Grid,
   TextField,
@@ -11,6 +12,7 @@ import {
   RadioGroup,
   FormControlLabel,
   Radio,
+  Typography,
 } from '@material-ui/core';
 
 // Basic class component structure for React with default state
@@ -68,49 +70,133 @@ class ReviewPage extends Component {
       <div>
         <Grid container direction="column" justify="center" alignItems="center">
           <div>
-            <FormControl component="fieldset">
-              <FormLabel component="legend">
-                Were employees wearing masks?
-              </FormLabel>
-              <RadioGroup
-                aria-label="masks"
-                name="masks"
-                // value={value}
-                onChange={this.handleNewReviewChange('masks')}
-              >
-                <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                <FormControlLabel value="no" control={<Radio />} label="No" />
-              </RadioGroup>
-            </FormControl>
-            <TextField
-              id="outlined-basic"
-              label="Restaurant Name"
-              variant="outlined"
-              onChange={this.handleNewReviewChange('name')}
-            />
-            <TextField
-              id="outlined-basic"
-              label="Street Address"
-              variant="outlined"
-              onChange={this.handleNewReviewChange('street')}
-            />
-            <TextField
-              id="outlined-basic"
-              label="City"
-              variant="outlined"
-              onChange={this.handleNewReviewChange('city')}
-            />
-            <TextField
-              id="outlined-basic"
-              label="State"
-              variant="outlined"
-              onChange={this.handleNewReviewChange('state')}
-            />
+            <Grid>
+              <Box component="fieldset" mb={3} borderColor="transparent">
+                <Typography component="legend">Overall Rating</Typography>
+                <Rating
+                  name="simple-controlled"
+                  // value={value}
+                  onChange={this.handleNewReviewChange('rating')}
+                />
+              </Box>
+            </Grid>
+            <Grid>
+              <FormControl component="fieldset">
+                <FormLabel component="legend">
+                  Were employees wearing masks?
+                </FormLabel>
+                <RadioGroup
+                  aria-label="masks"
+                  name="masks"
+                  // value={value}
+                  onChange={this.handleNewReviewChange('masks')}
+                >
+                  <FormControlLabel
+                    value="yes"
+                    control={<Radio />}
+                    label="Yes"
+                  />
+                  <FormControlLabel value="no" control={<Radio />} label="No" />
+                </RadioGroup>
+              </FormControl>
+            </Grid>
+            <Grid>
+              <FormControl component="fieldset">
+                <FormLabel component="legend">
+                  Were tables spaced at least 6ft apart?
+                </FormLabel>
+                <RadioGroup
+                  aria-label="tables"
+                  name="tables"
+                  // value={value}
+                  onChange={this.handleNewReviewChange('tables')}
+                >
+                  <FormControlLabel
+                    value="yes"
+                    control={<Radio />}
+                    label="Yes"
+                  />
+                  <FormControlLabel value="no" control={<Radio />} label="No" />
+                </RadioGroup>
+              </FormControl>
+            </Grid>
+            <Grid>
+              <FormControl component="fieldset">
+                <FormLabel component="legend">
+                  Were there more than ten people per party?
+                </FormLabel>
+                <RadioGroup
+                  aria-label="party_size"
+                  name="party_size"
+                  // value={value}
+                  onChange={this.handleNewReviewChange('party_size')}
+                >
+                  <FormControlLabel
+                    value="yes"
+                    control={<Radio />}
+                    label="Yes"
+                  />
+                  <FormControlLabel value="no" control={<Radio />} label="No" />
+                </RadioGroup>
+              </FormControl>
+            </Grid>
+            <Grid>
+              <FormControl component="fieldset">
+                <FormLabel component="legend">
+                  Was sanitizer offered to the public?
+                </FormLabel>
+                <RadioGroup
+                  aria-label="sanitizer_offered"
+                  name="sanitizer_offered"
+                  // value={value}
+                  onChange={this.handleNewReviewChange('sanitizer_offered')}
+                >
+                  <FormControlLabel
+                    value="yes"
+                    control={<Radio />}
+                    label="Yes"
+                  />
+                  <FormControlLabel value="no" control={<Radio />} label="No" />
+                </RadioGroup>
+              </FormControl>
+            </Grid>
+            <Grid>
+              <FormControl component="fieldset">
+                <FormLabel component="legend">
+                  Were there single use menus or QR codes to scan with a smart
+                  phone?
+                </FormLabel>
+                <RadioGroup
+                  aria-label="menu"
+                  name="menu"
+                  // value={value}
+                  onChange={this.handleNewReviewChange('menu')}
+                >
+                  <FormControlLabel
+                    value="yes"
+                    control={<Radio />}
+                    label="Yes"
+                  />
+                  <FormControlLabel value="no" control={<Radio />} label="No" />
+                </RadioGroup>
+              </FormControl>
+            </Grid>
+            <Grid>
+              <TextField
+                id="outlined-multiline-static"
+                label="Comments"
+                multiline
+                rows={4}
+                placeholder="Input additional comments here!"
+                variant="outlined"
+                onChange={this.handleNewReviewChange('comments')}
+              />
+            </Grid>
           </div>
           <div style={{ padding: 20 }}>
             <Box pt={1}>
               <Button
-                onClick={this.addNewRestaurant}
+                onClick={this.addNewReview}
                 variant="contained"
                 color="inherit"
               >

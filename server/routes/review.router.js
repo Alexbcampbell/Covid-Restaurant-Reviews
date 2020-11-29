@@ -27,9 +27,10 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   // POST route code here
   const newReview = req.body;
-  const queryText = `INSERT INTO "reviews" ("masks", "tables", "party_size", "sanitizer_offered", "menu", "comments")
-    VALUES ($1, $2, $3, $4, $5, $6)`;
+  const queryText = `INSERT INTO "reviews" ("rating", "masks", "tables", "party_size", "sanitizer_offered", "menu", "comments")
+    VALUES ($1, $2, $3, $4, $5, $6, $7)`;
   const queryValues = [
+    newReview.rating,
     newReview.masks,
     newReview.tables,
     newReview.party_size,
