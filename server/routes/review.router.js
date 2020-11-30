@@ -5,6 +5,26 @@ const {
   rejectUnauthenticated,
 } = require('../modules/authentication-middleware');
 
+router.get('/details/:id', (req, res) => {
+  // GET route code here
+  pool
+    .query(
+      `SELECT "reviews".* FROM "restaurants" 
+    JOIN "restaurants_reviews" ON "restaurants".id = "restaurants_reviews".restaurants_id
+    JOIN "reviews" ON "restaurants_reviews".reviews_id = "reviews".id
+    WHERE "restaurants".id = $1
+    `,
+      [req.params.id]
+    )
+    .then((dbResponse) => {
+      res.send(dbResponse.rows);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
+});
+
 /**
  * GET route template
  */

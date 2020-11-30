@@ -6,6 +6,7 @@ import restaurantSaga from './restaurants.saga';
 import newRestaurantSaga from './new.restaurant.saga';
 import newReviewSaga from './new.review.saga';
 import reviewSaga from './review.saga';
+import detailsSaga from './details.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -23,5 +24,6 @@ export default function* rootSaga() {
     newRestaurantSaga(),
     newReviewSaga(),
     reviewSaga(),
+    detailsSaga(),
   ]);
 }

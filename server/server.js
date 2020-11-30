@@ -12,6 +12,7 @@ const userRouter = require('./routes/user.router');
 const accessRouter = require('./routes/access.router');
 const reviewRouter = require('./routes/review.router');
 const restaurantRouter = require('./routes/restaurant.router');
+const detailsRouter = require('./routes/details.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -29,6 +30,7 @@ app.use('/api/user', userRouter);
 app.use('/api/access', accessRouter);
 app.use('/api/reviews', reviewRouter);
 app.use('/api/restaurants', restaurantRouter);
+app.use('/api/restaurantDetails', detailsRouter);
 
 // Serve static files
 app.use(express.static('build'));
