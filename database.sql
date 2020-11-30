@@ -45,7 +45,6 @@ CREATE TABLE "reviews" (
 INSERT INTO "reviews" ("rating", "masks", "tables", "party_size", "sanitizer_offered", "menu", "comments")
 	VALUES ('4', 'yes', 'yes', 'yes', 'yes', 'yes', 'Employees were all wearing masks and protocols were being followed correctly')
 ;
-
 CREATE TABLE "restaurants" (
 	"id" SERIAL PRIMARY KEY,
 	"name" VARCHAR(80),
@@ -70,3 +69,19 @@ CREATE TABLE "restaurants_reviews" (
 	"restaurants_id" INT REFERENCES "restaurants" NOT NULL,
 	"reviews_id" INT REFERENCES "reviews" NOT NULL
 );
+
+INSERT INTO "restaurants_reviews" ("restaurants_id", "reviews_id")
+	VALUES(1,1);
+
+
+
+SELECT * FROM "restaurants"
+  JOIN "restaurants_reviews" ON "restaurants".id = "restaurants_reviews".restaurants_id
+  JOIN "reviews" ON "restaurants_reviews".reviews_id = "reviews".id
+  WHERE "restaurants".id = 1;
+  
+  SELECT "reviews".* FROM "restaurants" 
+    JOIN "restaurants_reviews" ON "restaurants".id = "restaurants_reviews".restaurants_id
+    JOIN "reviews" ON "restaurants_reviews".reviews_id = "reviews".id
+    WHERE "restaurants".id = 1;
+  
