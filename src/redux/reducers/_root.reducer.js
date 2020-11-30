@@ -4,6 +4,7 @@ import user from './user.reducer';
 import accessReducer from './access.reducer';
 import restaurantReducer from './restaurant.reducer';
 import reviewReducer from './review.reducer';
+import restaurantDetailsReducer from './details.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   accessReducer,
   restaurantReducer,
   reviewReducer,
+  restaurantDetailsReducer,
 });
 
 export default rootReducer;

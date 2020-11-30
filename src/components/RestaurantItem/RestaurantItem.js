@@ -24,7 +24,7 @@ class RestaurantItem extends Component {
     },
   };
   handleCLickDetails = (event) => {
-    this.props.history.push('/details');
+    this.props.history.push(`/details/${this.props.restaurants.id}`);
   };
 
   render() {

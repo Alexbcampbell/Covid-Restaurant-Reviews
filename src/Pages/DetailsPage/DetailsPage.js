@@ -34,174 +34,182 @@ class DetailsPage extends Component {
   }
 
   render() {
-    const { restaurantDetails } = this.props;
-    const restaurantReview = restaurantDetails.reviews.map((item, index) => {
-      return (
-        <div key={index}>
-          <Grid
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-          >
-            <div>
-              <Grid>
-                <Box component="fieldset" mb={3} borderColor="transparent">
-                  <Typography component="legend">Overall Rating</Typography>
-                  <Rating name="simple-controlled" value={item.rating} />
-                </Box>
-              </Grid>
-              <Grid>
-                <FormControl component="fieldset">
-                  <FormLabel component="legend">
-                    Were employees wearing masks?
-                  </FormLabel>
-                  <RadioGroup
-                    aria-label="masks"
-                    name="masks"
-                    value={item.masks}
-                  >
-                    <FormControlLabel
-                      value="yes"
-                      control={<Radio />}
-                      label="Yes"
-                    />
-                    <FormControlLabel
-                      value="no"
-                      control={<Radio />}
-                      label="No"
-                    />
-                  </RadioGroup>
-                </FormControl>
-              </Grid>
-              <Grid>
-                <FormControl component="fieldset">
-                  <FormLabel component="legend">
-                    Were tables spaced at least 6ft apart?
-                  </FormLabel>
-                  <RadioGroup
-                    aria-label="tables"
-                    name="tables"
-                    value={this.tables}
-                  >
-                    <FormControlLabel
-                      value="yes"
-                      control={<Radio />}
-                      label="Yes"
-                    />
-                    <FormControlLabel
-                      value="no"
-                      control={<Radio />}
-                      label="No"
-                    />
-                  </RadioGroup>
-                </FormControl>
-              </Grid>
-              <Grid>
-                <FormControl component="fieldset">
-                  <FormLabel component="legend">
-                    Were there more than ten people per party?
-                  </FormLabel>
-                  <RadioGroup
-                    aria-label="party_size"
-                    name="party_size"
-                    value={this.party_size}
-                  >
-                    <FormControlLabel
-                      value="yes"
-                      control={<Radio />}
-                      label="Yes"
-                    />
-                    <FormControlLabel
-                      value="no"
-                      control={<Radio />}
-                      label="No"
-                    />
-                  </RadioGroup>
-                </FormControl>
-              </Grid>
-              <Grid>
-                <FormControl component="fieldset">
-                  <FormLabel component="legend">
-                    Was sanitizer offered to the public?
-                  </FormLabel>
-                  <RadioGroup
-                    aria-label="sanitizer_offered"
-                    name="sanitizer_offered"
-                    value={this.sanitizer_offered}
-                  >
-                    <FormControlLabel
-                      value="yes"
-                      control={<Radio />}
-                      label="Yes"
-                    />
-                    <FormControlLabel
-                      value="no"
-                      control={<Radio />}
-                      label="No"
-                    />
-                  </RadioGroup>
-                </FormControl>
-              </Grid>
-              <Grid>
-                <FormControl component="fieldset">
-                  <FormLabel component="legend">
-                    Were there single use menus or QR codes to scan with a smart
-                    phone?
-                  </FormLabel>
-                  <RadioGroup aria-label="menu" name="menu" value={this.menu}>
-                    <FormControlLabel
-                      value="yes"
-                      control={<Radio />}
-                      label="Yes"
-                    />
-                    <FormControlLabel
-                      value="no"
-                      control={<Radio />}
-                      label="No"
-                    />
-                  </RadioGroup>
-                </FormControl>
-              </Grid>
-              <Grid>
-                <TextField
-                  id="outlined-multiline-static"
-                  label="Comments"
-                  multiline
-                  rows={4}
-                  placeholder="Input additional comments here!"
-                  variant="outlined"
-                  value={this.comments}
-                />
-              </Grid>
-            </div>
-            {/* <div style={{ padding: 20 }}>
-            <Box pt={1}>
-              <Button
-                onClick={this.addNewReview}
-                variant="contained"
-                color="inherit"
-              >
-                Submit
-              </Button>
-            </Box>
-            <Box pt={1}>
-              <Button
-                onClick={this.onCancel}
-                variant="contained"
-                color="secondary"
-              >
-                Cancel
-              </Button>
-            </Box>
-          </div> */}
-          </Grid>
-        </div>
-      );
-    });
+    const { restaurantDetails } = this.props.store.restaurantDetailsReducer;
+    // const restaurantReview = restaurantDetails.reviewReducer.map(
+    //   (item, index) => {
+    //     return (
+    //       <div key={index}>
+    //         <Grid
+    //           container
+    //           direction="column"
+    //           justify="center"
+    //           alignItems="center"
+    //         >
+    //           <div>
+    //             <Grid>
+    //               <Box component="fieldset" mb={3} borderColor="transparent">
+    //                 <Typography component="legend">Overall Rating</Typography>
+    //                 <Rating name="simple-controlled" value={item.rating} />
+    //               </Box>
+    //             </Grid>
+    //             <Grid>
+    //               <FormControl component="fieldset">
+    //                 <FormLabel component="legend">
+    //                   Were employees wearing masks?
+    //                 </FormLabel>
+    //                 <RadioGroup
+    //                   aria-label="masks"
+    //                   name="masks"
+    //                   value={item.masks}
+    //                 >
+    //                   <FormControlLabel
+    //                     value="yes"
+    //                     control={<Radio />}
+    //                     label="Yes"
+    //                   />
+    //                   <FormControlLabel
+    //                     value="no"
+    //                     control={<Radio />}
+    //                     label="No"
+    //                   />
+    //                 </RadioGroup>
+    //               </FormControl>
+    //             </Grid>
+    //             <Grid>
+    //               <FormControl component="fieldset">
+    //                 <FormLabel component="legend">
+    //                   Were tables spaced at least 6ft apart?
+    //                 </FormLabel>
+    //                 <RadioGroup
+    //                   aria-label="tables"
+    //                   name="tables"
+    //                   value={this.tables}
+    //                 >
+    //                   <FormControlLabel
+    //                     value="yes"
+    //                     control={<Radio />}
+    //                     label="Yes"
+    //                   />
+    //                   <FormControlLabel
+    //                     value="no"
+    //                     control={<Radio />}
+    //                     label="No"
+    //                   />
+    //                 </RadioGroup>
+    //               </FormControl>
+    //             </Grid>
+    //             <Grid>
+    //               <FormControl component="fieldset">
+    //                 <FormLabel component="legend">
+    //                   Were there more than ten people per party?
+    //                 </FormLabel>
+    //                 <RadioGroup
+    //                   aria-label="party_size"
+    //                   name="party_size"
+    //                   value={this.party_size}
+    //                 >
+    //                   <FormControlLabel
+    //                     value="yes"
+    //                     control={<Radio />}
+    //                     label="Yes"
+    //                   />
+    //                   <FormControlLabel
+    //                     value="no"
+    //                     control={<Radio />}
+    //                     label="No"
+    //                   />
+    //                 </RadioGroup>
+    //               </FormControl>
+    //             </Grid>
+    //             <Grid>
+    //               <FormControl component="fieldset">
+    //                 <FormLabel component="legend">
+    //                   Was sanitizer offered to the public?
+    //                 </FormLabel>
+    //                 <RadioGroup
+    //                   aria-label="sanitizer_offered"
+    //                   name="sanitizer_offered"
+    //                   value={this.sanitizer_offered}
+    //                 >
+    //                   <FormControlLabel
+    //                     value="yes"
+    //                     control={<Radio />}
+    //                     label="Yes"
+    //                   />
+    //                   <FormControlLabel
+    //                     value="no"
+    //                     control={<Radio />}
+    //                     label="No"
+    //                   />
+    //                 </RadioGroup>
+    //               </FormControl>
+    //             </Grid>
+    //             <Grid>
+    //               <FormControl component="fieldset">
+    //                 <FormLabel component="legend">
+    //                   Were there single use menus or QR codes to scan with a
+    //                   smart phone?
+    //                 </FormLabel>
+    //                 <RadioGroup aria-label="menu" name="menu" value={this.menu}>
+    //                   <FormControlLabel
+    //                     value="yes"
+    //                     control={<Radio />}
+    //                     label="Yes"
+    //                   />
+    //                   <FormControlLabel
+    //                     value="no"
+    //                     control={<Radio />}
+    //                     label="No"
+    //                   />
+    //                 </RadioGroup>
+    //               </FormControl>
+    //             </Grid>
+    //             <Grid>
+    //               <TextField
+    //                 id="outlined-multiline-static"
+    //                 label="Comments"
+    //                 multiline
+    //                 rows={4}
+    //                 placeholder="Input additional comments here!"
+    //                 variant="outlined"
+    //                 value={this.comments}
+    //               />
+    //             </Grid>
+    //           </div>
+    //           {/* <div style={{ padding: 20 }}>
+    //         <Box pt={1}>
+    //           <Button
+    //             onClick={this.addNewReview}
+    //             variant="contained"
+    //             color="inherit"
+    //           >
+    //             Submit
+    //           </Button>
+    //         </Box>
+    //         <Box pt={1}>
+    //           <Button
+    //             onClick={this.onCancel}
+    //             variant="contained"
+    //             color="secondary"
+    //           >
+    //             Cancel
+    //           </Button>
+    //         </Box>
+    //       </div> */}
+    //         </Grid>
+    //       </div>
+    //     );
+    //   }
+    // );
     return (
       <div>
-        <h2>{restaurantDetails.name}</h2>
+        <div>
+          <h2>Restaurant Details</h2>
+        </div>
+        <div>
+          {/* <ul>{restaurantReview}</ul> */}
+          <p>{this.props.store.restaurantDetailsReducer.name}</p>
+        </div>
       </div>
     );
   }

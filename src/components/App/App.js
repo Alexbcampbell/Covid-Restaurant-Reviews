@@ -66,7 +66,7 @@ class App extends Component {
             <Route
               // shows DetailsPage at all times (logged in or not)
               exact
-              path="/details"
+              path="/details/:id"
               component={DetailsPage}
             />
 

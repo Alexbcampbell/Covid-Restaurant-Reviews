@@ -15,7 +15,7 @@ function* getDetails(action) {
     console.log(response.data);
     yield put({
       type: 'SET_DETAILS',
-      payload: { ...response.data[0], genres: dbResponse.data },
+      payload: { ...response.data[0], reviews: dbResponse.data },
     });
   } catch (err) {
     console.log(err);
