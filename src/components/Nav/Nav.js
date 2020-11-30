@@ -13,12 +13,12 @@ const Nav = (props) => {
 
   if (props.store.user.id != null) {
     loginLinkData.path = '/user';
-    loginLinkData.text = 'Home';
+    loginLinkData.text = 'Info';
   }
 
   return (
     <div className="nav">
-      <Link to="/home">
+      <Link to="/homepage">
         <h2 className="nav-title">COVID Restaurant Reviews</h2>
       </Link>
       <div className="nav-right">
@@ -34,13 +34,19 @@ const Nav = (props) => {
             <Link className="nav-link" to="/homepage">
               Home
             </Link>
+            <Link className="nav-link" to="/add">
+              Add a New Restaurant
+            </Link>
+            <Link className="nav-link" to="/restaurantlist">
+              Restaurant List
+            </Link>
             <LogOutButton className="nav-link" />
           </>
         )}
         {/* Always show this link since the about page is not protected */}
-        <Link className="nav-link" to="/about">
-          About
-        </Link>
+        {/* <Link className="nav-link" to="/restaurantlist">
+          Restaurant List
+        </Link> */}
       </div>
     </div>
   );

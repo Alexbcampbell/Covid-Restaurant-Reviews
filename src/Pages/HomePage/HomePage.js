@@ -41,10 +41,12 @@ class HomePage extends Component {
           alignItems="center"
         >
           <div style={{ padding: 20 }}>
+            <h2 className="reviewed">Welcome to COVID Restaurant Reviews!</h2>
             <Grid>
               <MapBoxComponent />
             </Grid>
             <div style={{ padding: 20 }}>
+              <h3 className="reviewed">Recently Reviewed</h3>
               <Grid
                 container
                 spacing={4}

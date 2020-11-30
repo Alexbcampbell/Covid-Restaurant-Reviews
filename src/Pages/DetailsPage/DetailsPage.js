@@ -26,7 +26,7 @@ class DetailsPage extends Component {
     // })
     return (
       <div>
-        <h2></h2>
+        <h2>{restaurantDetails}</h2>
       </div>
     );
   }
