@@ -15,12 +15,24 @@ import {
   Radio,
   Typography,
 } from '@material-ui/core';
+import ReactMapGL from 'react-map-gl';
+
+const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
 // the component name TemplateClass with the name for the new
 // component.
 class DetailsPage extends Component {
+  state = {
+    viewport: {
+      latitude: 39.099724,
+      longitude: -94.578331,
+      zoom: 12,
+      bearing: 0,
+      pitch: 0,
+    },
+  };
   componentDidMount() {
     console.log(this.props.match.params.id);
     this.props.dispatch({
@@ -34,181 +46,46 @@ class DetailsPage extends Component {
   }
 
   render() {
-    const { restaurantDetails } = this.props.store.restaurantDetailsReducer;
-    // const restaurantReview = restaurantDetails.reviewReducer.map(
-    //   (item, index) => {
-    //     return (
-    //       <div key={index}>
-    //         <Grid
-    //           container
-    //           direction="column"
-    //           justify="center"
-    //           alignItems="center"
-    //         >
-    //           <div>
-    //             <Grid>
-    //               <Box component="fieldset" mb={3} borderColor="transparent">
-    //                 <Typography component="legend">Overall Rating</Typography>
-    //                 <Rating name="simple-controlled" value={item.rating} />
-    //               </Box>
-    //             </Grid>
-    //             <Grid>
-    //               <FormControl component="fieldset">
-    //                 <FormLabel component="legend">
-    //                   Were employees wearing masks?
-    //                 </FormLabel>
-    //                 <RadioGroup
-    //                   aria-label="masks"
-    //                   name="masks"
-    //                   value={item.masks}
-    //                 >
-    //                   <FormControlLabel
-    //                     value="yes"
-    //                     control={<Radio />}
-    //                     label="Yes"
-    //                   />
-    //                   <FormControlLabel
-    //                     value="no"
-    //                     control={<Radio />}
-    //                     label="No"
-    //                   />
-    //                 </RadioGroup>
-    //               </FormControl>
-    //             </Grid>
-    //             <Grid>
-    //               <FormControl component="fieldset">
-    //                 <FormLabel component="legend">
-    //                   Were tables spaced at least 6ft apart?
-    //                 </FormLabel>
-    //                 <RadioGroup
-    //                   aria-label="tables"
-    //                   name="tables"
-    //                   value={this.tables}
-    //                 >
-    //                   <FormControlLabel
-    //                     value="yes"
-    //                     control={<Radio />}
-    //                     label="Yes"
-    //                   />
-    //                   <FormControlLabel
-    //                     value="no"
-    //                     control={<Radio />}
-    //                     label="No"
-    //                   />
-    //                 </RadioGroup>
-    //               </FormControl>
-    //             </Grid>
-    //             <Grid>
-    //               <FormControl component="fieldset">
-    //                 <FormLabel component="legend">
-    //                   Were there more than ten people per party?
-    //                 </FormLabel>
-    //                 <RadioGroup
-    //                   aria-label="party_size"
-    //                   name="party_size"
-    //                   value={this.party_size}
-    //                 >
-    //                   <FormControlLabel
-    //                     value="yes"
-    //                     control={<Radio />}
-    //                     label="Yes"
-    //                   />
-    //                   <FormControlLabel
-    //                     value="no"
-    //                     control={<Radio />}
-    //                     label="No"
-    //                   />
-    //                 </RadioGroup>
-    //               </FormControl>
-    //             </Grid>
-    //             <Grid>
-    //               <FormControl component="fieldset">
-    //                 <FormLabel component="legend">
-    //                   Was sanitizer offered to the public?
-    //                 </FormLabel>
-    //                 <RadioGroup
-    //                   aria-label="sanitizer_offered"
-    //                   name="sanitizer_offered"
-    //                   value={this.sanitizer_offered}
-    //                 >
-    //                   <FormControlLabel
-    //                     value="yes"
-    //                     control={<Radio />}
-    //                     label="Yes"
-    //                   />
-    //                   <FormControlLabel
-    //                     value="no"
-    //                     control={<Radio />}
-    //                     label="No"
-    //                   />
-    //                 </RadioGroup>
-    //               </FormControl>
-    //             </Grid>
-    //             <Grid>
-    //               <FormControl component="fieldset">
-    //                 <FormLabel component="legend">
-    //                   Were there single use menus or QR codes to scan with a
-    //                   smart phone?
-    //                 </FormLabel>
-    //                 <RadioGroup aria-label="menu" name="menu" value={this.menu}>
-    //                   <FormControlLabel
-    //                     value="yes"
-    //                     control={<Radio />}
-    //                     label="Yes"
-    //                   />
-    //                   <FormControlLabel
-    //                     value="no"
-    //                     control={<Radio />}
-    //                     label="No"
-    //                   />
-    //                 </RadioGroup>
-    //               </FormControl>
-    //             </Grid>
-    //             <Grid>
-    //               <TextField
-    //                 id="outlined-multiline-static"
-    //                 label="Comments"
-    //                 multiline
-    //                 rows={4}
-    //                 placeholder="Input additional comments here!"
-    //                 variant="outlined"
-    //                 value={this.comments}
-    //               />
-    //             </Grid>
-    //           </div>
-    //           {/* <div style={{ padding: 20 }}>
-    //         <Box pt={1}>
-    //           <Button
-    //             onClick={this.addNewReview}
-    //             variant="contained"
-    //             color="inherit"
-    //           >
-    //             Submit
-    //           </Button>
-    //         </Box>
-    //         <Box pt={1}>
-    //           <Button
-    //             onClick={this.onCancel}
-    //             variant="contained"
-    //             color="secondary"
-    //           >
-    //             Cancel
-    //           </Button>
-    //         </Box>
-    //       </div> */}
-    //         </Grid>
-    //       </div>
-    //     );
-    //   }
-    // );
+    const restaurantDetails = this.props.store.restaurantDetailsReducer;
+
     return (
       <div>
         <div>
-          <h2>Restaurant Details</h2>
+          <h2 className="reviewed">Restaurant Details</h2>
         </div>
         <div>
-          {/* <ul>{restaurantReview}</ul> */}
-          <p>{this.props.store.restaurantDetailsReducer.name}</p>
+          <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="flex-start"
+          >
+            <ReactMapGL
+              {...this.state.viewport}
+              width="25vw"
+              height="25vh"
+              mapStyle="mapbox://styles/mapbox/streets-v11"
+              onViewportChange={(viewport) => this.setState({ viewport })}
+              mapboxApiAccessToken={MAPBOX_TOKEN}
+              onclick={this.clickMap}
+            />
+          </Grid>
+        </div>
+        <div>
+          <Grid
+            container
+            direction="column"
+            justify="flex-start"
+            alignItems="center"
+          >
+            <p>
+              <strong>{restaurantDetails.name}</strong>
+            </p>
+            <p>{restaurantDetails.street}</p>
+            <p>
+              {restaurantDetails.city}, {restaurantDetails.state}
+            </p>
+          </Grid>
         </div>
       </div>
     );
