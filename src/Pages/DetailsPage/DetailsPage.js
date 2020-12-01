@@ -39,14 +39,54 @@ class DetailsPage extends Component {
       type: 'GET_DETAILS',
       payload: this.props.match.params.id,
     });
-    this.props.dispatch({
-      type: 'GET_REVIEWS',
-      payload: this.props.match.params.id,
-    });
+    // this.props.dispatch({
+    //   type: 'GET_REVIEWS',
+    //   payload: this.props.match.params.id,
+    // });
   }
+
+  addReviewClick = (event) => {
+    this.props.history.push('/review');
+  };
 
   render() {
     const restaurantDetails = this.props.store.restaurantDetailsReducer;
+    const reviews = this.props.store.restaurantDetailsReducer.reviews.map(
+      (item, review) => {
+        return (
+          <div key={review}>
+            <Grid>
+              <Box component="fieldset" mb={3} borderColor="transparent">
+                <Typography component="legend">Overall Rating</Typography>
+                <Rating name="simple-controlled" value={item.rating} />
+              </Box>
+            </Grid>
+            <Grid>
+              <FormControl component="fieldset">
+                <FormLabel component="legend">
+                  Were employees wearing masks?
+                </FormLabel>
+                <RadioGroup
+                  aria-label="masks"
+                  name="masks"
+                  value={item.masks ? true : true || item.masks ? false : false}
+                >
+                  {`${item.masks}`}
+                  {/* {' '}
+                  Boolean Value: {String(item.masks)} */}
+                  {/* <FormControlLabel
+                    value="yes"
+                    control={<Radio />}
+                    label="Yes"
+                  />
+                  <FormControlLabel value="no" control={<Radio />} label="No" /> */}
+                </RadioGroup>
+              </FormControl>
+            </Grid>
+          </div>
+        );
+      }
+    );
 
     return (
       <div>
@@ -71,7 +111,7 @@ class DetailsPage extends Component {
             />
           </Grid>
         </div>
-        <div>
+        <div style={{ padding: 20 }}>
           <Grid
             container
             direction="column"
@@ -86,6 +126,21 @@ class DetailsPage extends Component {
               {restaurantDetails.city}, {restaurantDetails.state}
             </p>
           </Grid>
+          <div className="reviewed" style={{ padding: 20 }}>
+            <Grid>
+              <Button
+                variant="contained"
+                color="inherit"
+                onClick={this.addReviewClick}
+              >
+                Add review!
+              </Button>
+            </Grid>
+          </div>
+          <div style={{ padding: 20 }}>
+            <h3 className="reviewed">Reviews</h3>
+            <Grid>{reviews}</Grid>
+          </div>
         </div>
       </div>
     );

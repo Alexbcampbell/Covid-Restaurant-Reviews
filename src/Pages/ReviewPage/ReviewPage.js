@@ -75,7 +75,7 @@ class ReviewPage extends Component {
                 <Typography component="legend">Overall Rating</Typography>
                 <Rating
                   name="simple-controlled"
-                  // value={value}
+                  value={this.state.newReview.rating}
                   onChange={this.handleNewReviewChange('rating')}
                 />
               </Box>
@@ -88,7 +88,7 @@ class ReviewPage extends Component {
                 <RadioGroup
                   aria-label="masks"
                   name="masks"
-                  // value={value}
+                  value={this.state.newReview.masks}
                   onChange={this.handleNewReviewChange('masks')}
                 >
                   <FormControlLabel
@@ -108,7 +108,7 @@ class ReviewPage extends Component {
                 <RadioGroup
                   aria-label="tables"
                   name="tables"
-                  // value={value}
+                  value={this.state.newReview.tables}
                   onChange={this.handleNewReviewChange('tables')}
                 >
                   <FormControlLabel
@@ -128,7 +128,7 @@ class ReviewPage extends Component {
                 <RadioGroup
                   aria-label="party_size"
                   name="party_size"
-                  // value={value}
+                  value={this.state.newReview.party_size}
                   onChange={this.handleNewReviewChange('party_size')}
                 >
                   <FormControlLabel
@@ -148,7 +148,7 @@ class ReviewPage extends Component {
                 <RadioGroup
                   aria-label="sanitizer_offered"
                   name="sanitizer_offered"
-                  // value={value}
+                  value={this.state.newReview.sanitizer_offered}
                   onChange={this.handleNewReviewChange('sanitizer_offered')}
                 >
                   <FormControlLabel
@@ -169,7 +169,7 @@ class ReviewPage extends Component {
                 <RadioGroup
                   aria-label="menu"
                   name="menu"
-                  // value={value}
+                  value={this.state.newReview.menu}
                   onChange={this.handleNewReviewChange('menu')}
                 >
                   <FormControlLabel
@@ -189,6 +189,7 @@ class ReviewPage extends Component {
                 rows={4}
                 placeholder="Input additional comments here!"
                 variant="outlined"
+                value={this.state.newReview.comments}
                 onChange={this.handleNewReviewChange('comments')}
               />
             </Grid>

@@ -17,6 +17,18 @@ class RestaurantList extends Component {
     });
   }
 
+  onChange = (key) => (event) => {
+    this.setState(
+      {
+        ...this.state,
+        [key]: event.target.value,
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
+  };
+
   render() {
     const restaurantArray = this.props.store.restaurantReducer.map(
       (item, index) => {
@@ -29,6 +41,10 @@ class RestaurantList extends Component {
     );
     return (
       <div>
+        <div>
+          <input type="text" onChange={this.onChange('search_string')}></input>
+          <button onClick={this.search}>Search</button>
+        </div>
         <div style={{ padding: 20 }}>
           <Grid
             container
