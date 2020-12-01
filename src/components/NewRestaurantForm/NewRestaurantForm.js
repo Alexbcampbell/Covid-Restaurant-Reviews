@@ -56,24 +56,28 @@ class NewRestaurantForm extends Component {
               id="outlined-basic"
               label="Restaurant Name"
               variant="outlined"
+              value={this.state.newRestaurant.name}
               onChange={this.handleNewRestaurantChange('name')}
             />
             <TextField
               id="outlined-basic"
               label="Street Address"
               variant="outlined"
+              value={this.state.newRestaurant.street}
               onChange={this.handleNewRestaurantChange('street')}
             />
             <TextField
               id="outlined-basic"
               label="City"
               variant="outlined"
+              value={this.state.newRestaurant.city}
               onChange={this.handleNewRestaurantChange('city')}
             />
             <TextField
               id="outlined-basic"
               label="State"
               variant="outlined"
+              value={this.state.newRestaurant.state}
               onChange={this.handleNewRestaurantChange('state')}
             />
             {/* <InputLabel id="demo-simple-select-filled-label">State</InputLabel>

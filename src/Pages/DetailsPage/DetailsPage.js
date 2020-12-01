@@ -14,6 +14,9 @@ import {
   FormControlLabel,
   Radio,
   Typography,
+  List,
+  ListItem,
+  ListItemText,
 } from '@material-ui/core';
 import ReactMapGL from 'react-map-gl';
 
@@ -61,7 +64,7 @@ class DetailsPage extends Component {
                 <Rating name="simple-controlled" value={item.rating} />
               </Box>
             </Grid>
-            <Grid>
+            {/* <Grid>
               <FormControl component="fieldset">
                 <FormLabel component="legend">
                   Were employees wearing masks?
@@ -72,16 +75,98 @@ class DetailsPage extends Component {
                   value={item.masks ? true : true || item.masks ? false : false}
                 >
                   {`${item.masks}`}
-                  {/* {' '}
-                  Boolean Value: {String(item.masks)} */}
-                  {/* <FormControlLabel
-                    value="yes"
-                    control={<Radio />}
-                    label="Yes"
-                  />
-                  <FormControlLabel value="no" control={<Radio />} label="No" /> */}
                 </RadioGroup>
               </FormControl>
+            </Grid> */}
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={6}>
+                {/* <Typography variant="h6">Text only</Typography> */}
+                <div>
+                  <List>
+                    <ListItem>
+                      <ListItemText
+                        primary="Were employees wearing masks?"
+                        secondary={`${item.masks}`}
+                      />
+                    </ListItem>
+                  </List>
+                </div>
+              </Grid>
+            </Grid>
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={6}>
+                {/* <Typography variant="h6">Text only</Typography> */}
+                <div>
+                  <List>
+                    <ListItem>
+                      <ListItemText
+                        primary="Were tables spaced at least 6ft apart?"
+                        secondary={`${item.tables}`}
+                      />
+                    </ListItem>
+                  </List>
+                </div>
+              </Grid>
+            </Grid>
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={6}>
+                {/* <Typography variant="h6">Text only</Typography> */}
+                <div>
+                  <List>
+                    <ListItem>
+                      <ListItemText
+                        primary="Were there more than ten people per party?"
+                        secondary={`${item.party_size}`}
+                      />
+                    </ListItem>
+                  </List>
+                </div>
+              </Grid>
+            </Grid>
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={6}>
+                {/* <Typography variant="h6">Text only</Typography> */}
+                <div>
+                  <List>
+                    <ListItem>
+                      <ListItemText
+                        primary="Was sanitizer offered to the public?"
+                        secondary={`${item.sanitizer_offered}`}
+                      />
+                    </ListItem>
+                  </List>
+                </div>
+              </Grid>
+            </Grid>
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={6}>
+                {/* <Typography variant="h6">Text only</Typography> */}
+                <div>
+                  <List>
+                    <ListItem>
+                      <ListItemText
+                        primary="Were there single use menus or QR codes to scan with a smart phone?"
+                        secondary={`${item.menu}`}
+                      />
+                    </ListItem>
+                  </List>
+                </div>
+              </Grid>
+            </Grid>
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={6}>
+                {/* <Typography variant="h6">Text only</Typography> */}
+                <div>
+                  <List>
+                    <ListItem>
+                      <ListItemText
+                        primary="Comments"
+                        secondary={`${item.comments}`}
+                      />
+                    </ListItem>
+                  </List>
+                </div>
+              </Grid>
             </Grid>
           </div>
         );

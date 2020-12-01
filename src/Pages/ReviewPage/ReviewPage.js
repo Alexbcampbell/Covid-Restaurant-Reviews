@@ -22,7 +22,7 @@ import {
 class ReviewPage extends Component {
   state = {
     newReview: {
-      rating: '',
+      rating: 0,
       masks: '',
       tables: '',
       party_size: '',
@@ -62,7 +62,7 @@ class ReviewPage extends Component {
   };
 
   onCancel = (event) => {
-    this.props.history.push('/details');
+    this.props.history.push('/details/:id');
   };
 
   render() {
