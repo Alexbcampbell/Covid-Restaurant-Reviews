@@ -5,14 +5,8 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import Rating from '@material-ui/lab/Rating';
 import {
   Grid,
-  TextField,
   Button,
   Box,
-  FormControl,
-  FormLabel,
-  RadioGroup,
-  FormControlLabel,
-  Radio,
   Typography,
   List,
   ListItem,
@@ -22,10 +16,6 @@ import ReactMapGL from 'react-map-gl';
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace
-// the component name TemplateClass with the name for the new
-// component.
 class DetailsPage extends Component {
   state = {
     viewport: {
@@ -37,15 +27,10 @@ class DetailsPage extends Component {
     },
   };
   componentDidMount() {
-    console.log(this.props.match.params.id);
     this.props.dispatch({
       type: 'GET_DETAILS',
       payload: this.props.match.params.id,
     });
-    // this.props.dispatch({
-    //   type: 'GET_REVIEWS',
-    //   payload: this.props.match.params.id,
-    // });
   }
 
   addReviewClick = (event) => {
@@ -64,23 +49,8 @@ class DetailsPage extends Component {
                 <Rating name="simple-controlled" value={item.rating} />
               </Box>
             </Grid>
-            {/* <Grid>
-              <FormControl component="fieldset">
-                <FormLabel component="legend">
-                  Were employees wearing masks?
-                </FormLabel>
-                <RadioGroup
-                  aria-label="masks"
-                  name="masks"
-                  value={item.masks ? true : true || item.masks ? false : false}
-                >
-                  {`${item.masks}`}
-                </RadioGroup>
-              </FormControl>
-            </Grid> */}
             <Grid container spacing={2}>
               <Grid item xs={12} md={6}>
-                {/* <Typography variant="h6">Text only</Typography> */}
                 <div>
                   <List>
                     <ListItem>
@@ -95,7 +65,6 @@ class DetailsPage extends Component {
             </Grid>
             <Grid container spacing={2}>
               <Grid item xs={12} md={6}>
-                {/* <Typography variant="h6">Text only</Typography> */}
                 <div>
                   <List>
                     <ListItem>
@@ -110,7 +79,6 @@ class DetailsPage extends Component {
             </Grid>
             <Grid container spacing={2}>
               <Grid item xs={12} md={6}>
-                {/* <Typography variant="h6">Text only</Typography> */}
                 <div>
                   <List>
                     <ListItem>
@@ -125,7 +93,6 @@ class DetailsPage extends Component {
             </Grid>
             <Grid container spacing={2}>
               <Grid item xs={12} md={6}>
-                {/* <Typography variant="h6">Text only</Typography> */}
                 <div>
                   <List>
                     <ListItem>
@@ -140,7 +107,6 @@ class DetailsPage extends Component {
             </Grid>
             <Grid container spacing={2}>
               <Grid item xs={12} md={6}>
-                {/* <Typography variant="h6">Text only</Typography> */}
                 <div>
                   <List>
                     <ListItem>
@@ -155,7 +121,6 @@ class DetailsPage extends Component {
             </Grid>
             <Grid container spacing={2}>
               <Grid item xs={12} md={6}>
-                {/* <Typography variant="h6">Text only</Typography> */}
                 <div>
                   <List>
                     <ListItem>

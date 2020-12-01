@@ -29,7 +29,15 @@ class RestaurantList extends Component {
     );
   };
 
+  search = (event) => {
+    this.props.dispatch({
+      type: 'FETCH_OPEN_CAGE',
+      payload: { search_string: this.state.search_string },
+    });
+  };
+
   render() {
+    console.log(this.props.store.cordsReducer);
     const restaurantArray = this.props.store.restaurantReducer.map(
       (item, index) => {
         return (
