@@ -11,8 +11,8 @@ router.get('/details/:id', (req, res) => {
   pool
     .query(
       `SELECT * FROM "restaurants"
-  JOIN "restaurants_reviews" ON "restaurants".id = "restaurants_reviews".restaurants_id
-  JOIN "reviews" ON "restaurants_reviews".reviews_id = "reviews".id
+  LEFT JOIN "restaurants_reviews" ON "restaurants".id = "restaurants_reviews".restaurants_id
+  LEFT JOIN "reviews" ON "restaurants_reviews".reviews_id = "reviews".id
   WHERE "restaurants".id = $1
   `,
       [req.params.id]

@@ -21,15 +21,15 @@ class HomePage extends Component {
   }
 
   render() {
-    const restaurantArray = this.props.store.restaurantReducer.map(
-      (item, index) => {
+    const restaurantArray = this.props.store.restaurantReducer
+      .slice(0, 3)
+      .map((item, index) => {
         return (
           <Grid item xs={3} key={index}>
             <RestaurantItem restaurants={item} index={index} {...this.props} />
           </Grid>
         );
-      }
-    );
+      });
 
     return (
       <div style={{ padding: 20 }}>

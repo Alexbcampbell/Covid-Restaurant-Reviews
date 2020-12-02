@@ -41,6 +41,7 @@ class NewRestaurantForm extends Component {
         state: '',
       },
     });
+    this.props.history.push('/restaurantlist');
   };
 
   onCancel = (event) => {

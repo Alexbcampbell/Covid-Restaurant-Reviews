@@ -83,13 +83,13 @@ class MapBoxComponent extends Component {
               }}
             />
           </button>
-          <Popup
+          {/* <Popup
             longitude={item.long}
             latitude={item.lat}
             offsetTop={-size / 2}
             offsetLeft={-size / 2}
             key={index}
-          ></Popup>
+          ></Popup> */}
         </Marker>
       );
     });

@@ -132,6 +132,9 @@ class DetailsPage extends Component {
                   </List>
                 </div>
               </Grid>
+              <Grid>
+                {this.props.store.user.level === 5 && <Button>Delete</Button>}
+              </Grid>
             </Grid>
           </div>
         );
@@ -178,13 +181,15 @@ class DetailsPage extends Component {
           </Grid>
           <div className="reviewed" style={{ padding: 20 }}>
             <Grid>
-              <Button
-                variant="contained"
-                color="inherit"
-                onClick={this.addReviewClick}
-              >
-                Add review!
-              </Button>
+              {this.props.store.user.id && (
+                <Button
+                  variant="contained"
+                  color="inherit"
+                  onClick={this.addReviewClick}
+                >
+                  Add review!
+                </Button>
+              )}
             </Grid>
           </div>
           <div style={{ padding: 20 }}>
