@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import MapBoxComponent from '../../components/MapBoxComponent/MapBoxComponent';
-import { Grid } from '@material-ui/core';
+import { Grid, Button } from '@material-ui/core';
 import RestaurantItem from '../../components/RestaurantItem/RestaurantItem';
 
 // Basic class component structure for React with default state
@@ -19,6 +19,14 @@ class HomePage extends Component {
       payload: this.props.store.restaurants,
     });
   }
+
+  clickToList = (event) => {
+    this.props.history.push('/restaurantlist');
+  };
+
+  clickToAdd = (event) => {
+    this.props.history.push('/add');
+  };
 
   render() {
     const restaurantArray = this.props.store.restaurantReducer
@@ -44,6 +52,34 @@ class HomePage extends Component {
             <h2 className="reviewed">Welcome to COVID Restaurant Reviews!</h2>
             <Grid>
               <MapBoxComponent />
+            </Grid>
+            <Grid
+              container
+              spacing={12}
+              direction="row"
+              justify="space-evenly"
+              alignItems="center"
+            >
+              <Grid item sm={8}>
+                <h3>Browse the Restaurant List</h3>
+                <Button
+                  variant="contained"
+                  color="inherit"
+                  onClick={this.clickToList}
+                >
+                  Restaurant List
+                </Button>
+              </Grid>
+              <Grid item sm={3}>
+                <h3>Add a New Restaurant</h3>
+                <Button
+                  variant="contained"
+                  color="inherit"
+                  onClick={this.clickToAdd}
+                >
+                  Add a New Restaurant
+                </Button>
+              </Grid>
             </Grid>
             <div style={{ padding: 20 }}>
               <h3 className="reviewed">Recently Reviewed</h3>

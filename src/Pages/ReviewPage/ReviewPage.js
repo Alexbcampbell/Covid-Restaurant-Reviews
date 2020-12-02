@@ -59,6 +59,7 @@ class ReviewPage extends Component {
         comments: '',
       },
     });
+    this.props.history.push('/details/:id');
   };
 
   onCancel = (event) => {

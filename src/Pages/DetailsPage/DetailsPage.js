@@ -144,32 +144,40 @@ class DetailsPage extends Component {
     return (
       <div>
         <div>
-          <h2 className="reviewed">Restaurant Details</h2>
+          <h2>Restaurant Details</h2>
         </div>
-        <div>
+        <Grid
+          container
+          direction="row"
+          justify="space-evenly"
+          alignItems="flex-start"
+        >
+          {/* <div> */}
           <Grid
-            container
-            direction="row"
-            justify="center"
-            alignItems="flex-start"
+            sm={8}
+            // container
+            // direction="row"
+            // justify="center"
+            // alignItems="flex-start"
           >
             <ReactMapGL
               {...this.state.viewport}
-              width="25vw"
-              height="25vh"
+              width="50vw"
+              height="50vh"
               mapStyle="mapbox://styles/mapbox/streets-v11"
               onViewportChange={(viewport) => this.setState({ viewport })}
               mapboxApiAccessToken={MAPBOX_TOKEN}
               onclick={this.clickMap}
             />
           </Grid>
-        </div>
-        <div style={{ padding: 20 }}>
+          {/* </div> */}
+          {/* <div style={{ padding: 20 }}> */}
           <Grid
+            sm={2}
             container
             direction="column"
-            justify="flex-start"
-            alignItems="center"
+            justify="space-evenly"
+            alignItems="flex-start"
           >
             <p>
               <strong>{restaurantDetails.name}</strong>
@@ -179,23 +187,31 @@ class DetailsPage extends Component {
               {restaurantDetails.city}, {restaurantDetails.state}
             </p>
           </Grid>
-          <div className="reviewed" style={{ padding: 20 }}>
-            <Grid>
-              {this.props.store.user.id && (
-                <Button
-                  variant="contained"
-                  color="inherit"
-                  onClick={this.addReviewClick}
-                >
-                  Add review!
-                </Button>
-              )}
-            </Grid>
-          </div>
-          <div style={{ padding: 20 }}>
-            <h3 className="reviewed">Reviews</h3>
-            <Grid>{reviews}</Grid>
-          </div>
+          {/* </div> */}
+          {/* <div style={{ padding: 20 }}> */}
+          <Grid
+            item
+            sm={2}
+            container
+            direction="column"
+            justify="center"
+            alignItems="flex-start"
+          >
+            {this.props.store.user.id && (
+              <Button
+                variant="contained"
+                color="inherit"
+                onClick={this.addReviewClick}
+              >
+                Add review!
+              </Button>
+            )}
+          </Grid>
+          {/* </div> */}
+        </Grid>
+        <div style={{ padding: 20 }}>
+          <h3 className="reviewed">Reviews</h3>
+          <Grid>{reviews}</Grid>
         </div>
       </div>
     );
