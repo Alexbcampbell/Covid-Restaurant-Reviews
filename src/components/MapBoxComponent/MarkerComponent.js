@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ReactMapGL, { Marker } from 'react-map-gl';
+import { Marker } from 'react-map-gl';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
 const markerIcon = require('./mapbox-icon.png');
@@ -17,6 +17,7 @@ class MarkerComponent extends Component {
       >
         <img
           src={markerIcon}
+          alt="Custom markers"
           style={{
             width: this.props.size,
             height: this.props.size,

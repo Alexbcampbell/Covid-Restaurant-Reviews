@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ReactMapGL, { Marker } from 'react-map-gl';
+import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import {} from '@material-ui/core';
-import MarkerComponent from './MarkerComponent';
+// import MarkerComponent from './MarkerComponent';
 const markerIcon = require('./mapbox-icon.png');
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
@@ -73,13 +73,23 @@ class MapBoxComponent extends Component {
           offsetLeft={-size / 2}
           key={index}
         >
-          <img
-            src={markerIcon}
-            style={{
-              width: size,
-              height: size,
-            }}
-          />
+          <button>
+            <img
+              src={markerIcon}
+              alt="custom markers"
+              style={{
+                width: size,
+                height: size,
+              }}
+            />
+          </button>
+          <Popup
+            longitude={item.long}
+            latitude={item.lat}
+            offsetTop={-size / 2}
+            offsetLeft={-size / 2}
+            key={index}
+          ></Popup>
         </Marker>
       );
     });
