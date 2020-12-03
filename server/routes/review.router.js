@@ -67,6 +67,33 @@ router.post('/', (req, res) => {
     });
 });
 
+router.put('/:id', (req, res) => {
+  const newReview = req.body;
+  const queryText = `UPDATE "reviews" 
+  SET "rating"=$1, "masks"=$2, "tables"=$3, "party_size"=$4, "sanitizer_offered"=$5, "menu"=$6, "comments"=$7
+  WHERE "reviews".id=$8;`;
+  const queryArray = [
+    newReview.rating,
+    newReview.masks,
+    newReview.tables,
+    newReview.party_size,
+    newReview.sanitizer_offered,
+    newReview.menu,
+    newReview.comments,
+    req.params.id,
+  ];
+
+  pool
+    .query(queryText, queryArray)
+    .then((dbResponse) => {
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.sendStatus(500);
+    });
+});
+
 router.delete('/:id', (req, res) => {
   const queryText = 'DELETE FROM "reviews" WHERE id=$1;';
   const queryArray = [req.params.id];
