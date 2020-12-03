@@ -14,8 +14,35 @@ function* getReviews(action) {
   }
 }
 
+function* updateReview(action) {
+  try {
+    const response = yield axios.put(`/api/reviews/${action.payload}`);
+    yield put({
+      type: 'PUT_REVIEWS',
+      payload: response.data,
+    });
+  } catch (err) {
+    console.log('ERROR UPDATING REVIEW', err);
+    yield put({ type: 'PUT_FAILED' });
+  }
+}
+
+function* deleteReview(action) {
+  try {
+    yield axios.delete(`/api/reviews/${action.payload}`);
+    yield put({
+      type: 'SET_REVIEWS',
+    });
+  } catch (err) {
+    console.log('ERROR DELETING REVIEW', err);
+    yield put({ type: 'DELETE_FAILED' });
+  }
+}
+
 function* reviewSaga() {
   yield takeLatest('GET_REVIEWS', getReviews);
+  yield takeLatest('UPDATE_REVIEW', updateReview);
+  yield takeLatest('DELETE_REVIEW', deleteReview);
 }
 
 export default reviewSaga;

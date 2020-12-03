@@ -6,6 +6,7 @@ import restaurantReducer from './restaurant.reducer';
 import reviewReducer from './review.reducer';
 import restaurantDetailsReducer from './details.reducer';
 import cordsReducer from './cord.reducer';
+import updateReviewReducer from './update.review.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   reviewReducer,
   restaurantDetailsReducer,
   cordsReducer,
+  updateReviewReducer,
 });
 
 export default rootReducer;

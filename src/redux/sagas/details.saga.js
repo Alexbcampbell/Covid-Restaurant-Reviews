@@ -4,11 +4,11 @@ import axios from 'axios';
 function* getDetails(action) {
   console.log('HELLO');
   try {
-    //gets movie details
+    //gets restaurant details
     const response = yield axios.get(
       `/api/restaurantDetails/details/${action.payload}`
     );
-    //gets genre details
+    //gets review details
     const dbResponse = yield axios.get(
       `/api/reviews/details/${action.payload}`
     );

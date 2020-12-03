@@ -8,6 +8,8 @@ import newReviewSaga from './new.review.saga';
 import reviewSaga from './review.saga';
 import detailsSaga from './details.saga';
 import openCageSaga from './opencage.saga';
+// import deleteReviewSaga from './delete.saga';
+
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
 // This is imported in index.js as rootSaga
@@ -26,5 +28,6 @@ export default function* rootSaga() {
     reviewSaga(),
     detailsSaga(),
     openCageSaga(),
+    // deleteReviewSaga(),
   ]);
 }

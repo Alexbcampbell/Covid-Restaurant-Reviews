@@ -77,7 +77,7 @@ class HomePage extends Component {
                   color="inherit"
                   onClick={this.clickToAdd}
                 >
-                  Add a New Restaurant
+                  Add Restaurant
                 </Button>
               </Grid>
             </Grid>

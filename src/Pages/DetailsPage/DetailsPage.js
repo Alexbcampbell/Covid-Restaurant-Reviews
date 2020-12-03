@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import CheckBoxIcon from '@material-ui/icons/CheckBox';
+import CancelIcon from '@material-ui/icons/Cancel';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import Rating from '@material-ui/lab/Rating';
 import {
@@ -11,6 +14,10 @@ import {
   List,
   ListItem,
   ListItemText,
+  Paper,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
 } from '@material-ui/core';
 import ReactMapGL from 'react-map-gl';
 
@@ -37,6 +44,17 @@ class DetailsPage extends Component {
     this.props.history.push('/review');
   };
 
+  onDeleteClick = (event) => {
+    this.props.dispatch({
+      type: 'DELETE_REVIEW',
+      payload: this.props.match.params.id,
+    });
+  };
+
+  onEditClick = (event) => {
+    this.props.history.push('/edit');
+  };
+
   render() {
     const restaurantDetails = this.props.store.restaurantDetailsReducer;
     const reviews = this.props.store.restaurantDetailsReducer.reviews.map(
@@ -44,97 +62,153 @@ class DetailsPage extends Component {
         return (
           <div key={review}>
             <Grid>
-              <Box component="fieldset" mb={3} borderColor="transparent">
-                <Typography component="legend">Overall Rating</Typography>
-                <Rating name="simple-controlled" value={item.rating} />
-              </Box>
-            </Grid>
-            <Grid container spacing={2}>
-              <Grid item xs={12} md={6}>
-                <div>
-                  <List>
-                    <ListItem>
-                      <ListItemText
-                        primary="Were employees wearing masks?"
-                        secondary={`${item.masks}`}
-                      />
-                    </ListItem>
-                  </List>
-                </div>
-              </Grid>
-            </Grid>
-            <Grid container spacing={2}>
-              <Grid item xs={12} md={6}>
-                <div>
-                  <List>
-                    <ListItem>
-                      <ListItemText
-                        primary="Were tables spaced at least 6ft apart?"
-                        secondary={`${item.tables}`}
-                      />
-                    </ListItem>
-                  </List>
-                </div>
-              </Grid>
-            </Grid>
-            <Grid container spacing={2}>
-              <Grid item xs={12} md={6}>
-                <div>
-                  <List>
-                    <ListItem>
-                      <ListItemText
-                        primary="Were there more than ten people per party?"
-                        secondary={`${item.party_size}`}
-                      />
-                    </ListItem>
-                  </List>
-                </div>
-              </Grid>
-            </Grid>
-            <Grid container spacing={2}>
-              <Grid item xs={12} md={6}>
-                <div>
-                  <List>
-                    <ListItem>
-                      <ListItemText
-                        primary="Was sanitizer offered to the public?"
-                        secondary={`${item.sanitizer_offered}`}
-                      />
-                    </ListItem>
-                  </List>
-                </div>
-              </Grid>
-            </Grid>
-            <Grid container spacing={2}>
-              <Grid item xs={12} md={6}>
-                <div>
-                  <List>
-                    <ListItem>
-                      <ListItemText
-                        primary="Were there single use menus or QR codes to scan with a smart phone?"
-                        secondary={`${item.menu}`}
-                      />
-                    </ListItem>
-                  </List>
-                </div>
-              </Grid>
-            </Grid>
-            <Grid container spacing={2}>
-              <Grid item xs={12} md={6}>
-                <div>
-                  <List>
-                    <ListItem>
-                      <ListItemText
-                        primary="Comments"
-                        secondary={`${item.comments}`}
-                      />
-                    </ListItem>
-                  </List>
-                </div>
-              </Grid>
-              <Grid>
-                {this.props.store.user.level === 5 && <Button>Delete</Button>}
-              </Grid>
+              <Paper elevation={3} xs={6} md={6}>
+                <Grid item xs={12} md={12}>
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1a-content"
+                      id="panel1a-header"
+                    >
+                      <Typography>Overall Rating</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Typography>
+                        <Rating name="simple-controlled" value={item.rating} />
+                      </Typography>
+                    </AccordionDetails>
+                  </Accordion>
+                </Grid>
+                <Grid container>
+                  <Grid item xs={12} md={12}>
+                    <Accordion>
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                      >
+                        <Typography>Were employees wearing masks?</Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <ListItemText primary={`${item.masks}`} />
+                      </AccordionDetails>
+                    </Accordion>
+                  </Grid>
+                </Grid>
+                <Grid container>
+                  <Grid item xs={12} md={12}>
+                    <Accordion>
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                      >
+                        <Typography>
+                          Were tables spaced at least 6ft apart?
+                        </Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <ListItemText primary={`${item.tables}`} />
+                      </AccordionDetails>
+                    </Accordion>
+                  </Grid>
+                </Grid>
+                <Grid container>
+                  <Grid item xs={12} md={12}>
+                    <Accordion>
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                      >
+                        <Typography>
+                          Were there more than ten people per party?
+                        </Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <ListItemText primary={`${item.party_size}`} />
+                      </AccordionDetails>
+                    </Accordion>
+                  </Grid>
+                </Grid>
+                <Grid container>
+                  <Grid item xs={12} md={12}>
+                    <Accordion>
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                      >
+                        <Typography>
+                          Was sanitizer offered to the public?
+                        </Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <ListItemText primary={`${item.sanitizer_offered}`} />
+                      </AccordionDetails>
+                    </Accordion>
+                  </Grid>
+                </Grid>
+                <Grid container>
+                  <Grid item xs={12} md={12}>
+                    <Accordion>
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                      >
+                        <Typography>
+                          Were there single use menus or QR codes to scan with a
+                          smart phone?
+                        </Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <ListItemText primary={`${item.menu}`} />
+                      </AccordionDetails>
+                    </Accordion>
+                  </Grid>
+                </Grid>
+                <Grid container>
+                  <Grid item xs={12} md={12}>
+                    <Accordion>
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                      >
+                        <Typography>Comments</Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <ListItemText primary={`${item.comments}`} />
+                      </AccordionDetails>
+                    </Accordion>
+                  </Grid>
+                  <Grid container spacing={2}>
+                    <Grid item sm={2}>
+                      {this.props.store.user.level === 5 && (
+                        <Button
+                          variant="contained"
+                          color="inherit"
+                          onClick={this.onDeleteClick}
+                        >
+                          Delete
+                        </Button>
+                      )}
+                    </Grid>
+                    <Grid item sm={4}>
+                      {this.props.store.user.level === 5 && (
+                        <Button
+                          variant="contained"
+                          color="inherit"
+                          onClick={this.onEditClick}
+                        >
+                          Edit
+                        </Button>
+                      )}
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Paper>
             </Grid>
           </div>
         );
@@ -147,12 +221,13 @@ class DetailsPage extends Component {
           <h2>Restaurant Details</h2>
         </div>
         <Grid
+          spacing={3}
           container
           direction="row"
           justify="space-evenly"
           alignItems="flex-start"
         >
-          <Grid sm={8}>
+          <Grid item sm={8}>
             <ReactMapGL
               {...this.state.viewport}
               width="50vw"
@@ -164,6 +239,7 @@ class DetailsPage extends Component {
             />
           </Grid>
           <Grid
+            item
             sm={2}
             container
             direction="column"

@@ -75,6 +75,7 @@ class EditPage extends Component {
               <Box component="fieldset" mb={3} borderColor="transparent">
                 <Typography component="legend">Overall Rating</Typography>
                 <Rating
+                  type="number"
                   name="simple-controlled"
                   value={this.state.newReview.rating}
                   onChange={this.handleNewReviewChange('rating')}
@@ -198,7 +199,7 @@ class EditPage extends Component {
           <div style={{ padding: 20 }}>
             <Box pt={1}>
               <Button
-                onClick={this.addNewReview}
+                onClick={this.updateReview}
                 variant="contained"
                 color="inherit"
               >
