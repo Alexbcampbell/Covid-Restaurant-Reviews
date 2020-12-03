@@ -55,7 +55,7 @@ class HomePage extends Component {
             </Grid>
             <Grid
               container
-              spacing={12}
+              spacing={6}
               direction="row"
               justify="space-evenly"
               alignItems="center"

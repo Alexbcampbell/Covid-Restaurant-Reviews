@@ -95,12 +95,20 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  const queryText = 'DELETE FROM "reviews" WHERE id=$1;';
   const queryArray = [req.params.id];
+  const arguments = [
+    {
+      queryText: 'DELETE FROM "restaurants_reviews" WHERE "reviews_id"=$1',
+      queryArray,
+    },
+    { queryText: 'DELETE FROM "reviews" WHERE id=$1', queryArray },
+  ];
 
-  pool
-    .query(queryText, queryArray)
-    .then((dbResponse) => {
+  const requests = arguments.map((arg) =>
+    deleteReview(arg.queryText, arg.queryArray)
+  );
+  return Promise.all(requests)
+    .then(() => {
       res.sendStatus(200);
     })
     .catch((error) => {
@@ -108,5 +116,17 @@ router.delete('/:id', (req, res) => {
       res.sendStatus(500);
     });
 });
+
+const deleteReview = (queryText, queryArray) => {
+  pool
+    .query(queryText, queryArray)
+    .then((res) => {
+      return;
+    })
+    .catch((e) => {
+      console.log(e);
+      return e;
+    });
+};
 
 module.exports = router;

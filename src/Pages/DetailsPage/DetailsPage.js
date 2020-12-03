@@ -23,6 +23,14 @@ import ReactMapGL from 'react-map-gl';
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 
+const baseMap = {
+  type: 'raster',
+  tiles: ['http://tile.stamen.com/toner/{z}/{x}/{y}.png'],
+  tileSize: 256,
+  attribution:
+    'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
+};
+
 class DetailsPage extends Component {
   state = {
     viewport: {
@@ -31,6 +39,19 @@ class DetailsPage extends Component {
       zoom: 12,
       bearing: 0,
       pitch: 0,
+    },
+    style: {
+      version: 8,
+      sources: baseMap,
+      layers: [
+        {
+          id: 'stamentoner',
+          type: 'raster',
+          source: baseMap,
+          minzoom: 0,
+          maxzoom: 22,
+        },
+      ],
     },
   };
   componentDidMount() {
@@ -232,7 +253,7 @@ class DetailsPage extends Component {
               {...this.state.viewport}
               width="50vw"
               height="50vh"
-              mapStyle="mapbox://styles/mapbox/streets-v11"
+              // mapStyle="mapbox://styles/mapbox/streets-v11"
               onViewportChange={(viewport) => this.setState({ viewport })}
               mapboxApiAccessToken={MAPBOX_TOKEN}
               onclick={this.clickMap}
