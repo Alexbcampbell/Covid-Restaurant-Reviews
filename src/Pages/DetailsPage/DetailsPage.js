@@ -152,14 +152,7 @@ class DetailsPage extends Component {
           justify="space-evenly"
           alignItems="flex-start"
         >
-          {/* <div> */}
-          <Grid
-            sm={8}
-            // container
-            // direction="row"
-            // justify="center"
-            // alignItems="flex-start"
-          >
+          <Grid sm={8}>
             <ReactMapGL
               {...this.state.viewport}
               width="50vw"
@@ -170,8 +163,6 @@ class DetailsPage extends Component {
               onclick={this.clickMap}
             />
           </Grid>
-          {/* </div> */}
-          {/* <div style={{ padding: 20 }}> */}
           <Grid
             sm={2}
             container
@@ -187,8 +178,6 @@ class DetailsPage extends Component {
               {restaurantDetails.city}, {restaurantDetails.state}
             </p>
           </Grid>
-          {/* </div> */}
-          {/* <div style={{ padding: 20 }}> */}
           <Grid
             item
             sm={2}
@@ -207,7 +196,6 @@ class DetailsPage extends Component {
               </Button>
             )}
           </Grid>
-          {/* </div> */}
         </Grid>
         <div style={{ padding: 20 }}>
           <h3 className="reviewed">Reviews</h3>

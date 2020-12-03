@@ -10,8 +10,8 @@ router.get('/details/:id', (req, res) => {
   pool
     .query(
       `SELECT "reviews".* FROM "restaurants" 
-    JOIN "restaurants_reviews" ON "restaurants".id = "restaurants_reviews".restaurants_id
-    JOIN "reviews" ON "restaurants_reviews".reviews_id = "reviews".id
+    LEFT JOIN "restaurants_reviews" ON "restaurants".id = "restaurants_reviews".restaurants_id
+    LEFT JOIN "reviews" ON "restaurants_reviews".reviews_id = "reviews".id
     WHERE "restaurants".id = $1
     `,
       [req.params.id]
@@ -63,6 +63,21 @@ router.post('/', (req, res) => {
     .then(() => res.sendStatus(201))
     .catch((err) => {
       console.log('ERROR POSTING REVIEW: ', err);
+      res.sendStatus(500);
+    });
+});
+
+router.delete('/:id', (req, res) => {
+  const queryText = 'DELETE FROM "reviews" WHERE id=$1;';
+  const queryArray = [req.params.id];
+
+  pool
+    .query(queryText, queryArray)
+    .then((dbResponse) => {
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log(error);
       res.sendStatus(500);
     });
 });

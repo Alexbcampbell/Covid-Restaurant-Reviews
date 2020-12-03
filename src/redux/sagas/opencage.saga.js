@@ -12,7 +12,7 @@ function* fetchOpenCage(action) {
 
     const response = yield axios.get(openCageUrl, config);
     const cords = response.data.results[0].geometry;
-
+    console.log(response.data.results[0]);
     yield put({
       type: 'SET_CORD',
       payload: {
