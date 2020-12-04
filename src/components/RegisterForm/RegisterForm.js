@@ -6,7 +6,13 @@ class RegisterForm extends Component {
   state = {
     username: '',
     password: '',
+    access_level_id: '',
   };
+  componentDidMount() {
+    this.props.dispatch({
+      type: 'GET_ACCESS',
+    });
+  }
 
   registerUser = (event) => {
     event.preventDefault();
@@ -16,6 +22,7 @@ class RegisterForm extends Component {
       payload: {
         username: this.state.username,
         password: this.state.password,
+        access_level_id: this.state.access_level_id,
       },
     });
   }; // end registerUser
@@ -57,6 +64,24 @@ class RegisterForm extends Component {
               required
               onChange={this.handleInputChangeFor('password')}
             />
+          </label>
+        </div>
+        <div>
+          <label htmlFor="access">
+            Access:
+            <select
+              onChange={this.handleInputChangeFor('access_level_id')}
+              required
+            >
+              <option value="">Select access level</option>
+              {this.props.store.accessReducer.map((item, index) => {
+                return (
+                  <option key={index} value={item.id}>
+                    {item.name}
+                  </option>
+                );
+              })}
+            </select>
           </label>
         </div>
         <div>

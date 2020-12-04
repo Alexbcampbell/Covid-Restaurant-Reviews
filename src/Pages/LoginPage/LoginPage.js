@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import LoginForm from '../LoginForm/LoginForm';
+import LoginForm from '../../components/LoginForm/LoginForm';
+import { Button } from '@material-ui/core';
 
 class LoginPage extends Component {
   render() {
@@ -10,7 +11,9 @@ class LoginPage extends Component {
         <LoginForm />
 
         <center>
-          <button
+          <Button
+            variant="contained"
+            color="inherit"
             type="button"
             className="btn btn_asLink"
             onClick={() => {
@@ -18,7 +21,7 @@ class LoginPage extends Component {
             }}
           >
             Register
-          </button>
+          </Button>
         </center>
       </div>
     );

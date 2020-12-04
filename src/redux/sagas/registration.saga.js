@@ -22,8 +22,22 @@ function* registerUser(action) {
   }
 }
 
+function* accessLevelReg(action) {
+  try {
+    const response = yield axios.get('/api/access');
+    yield put({
+      type: 'SET_ACCESS',
+      payload: response.data,
+    });
+  } catch (err) {
+    console.log('Error with user access level:', err);
+    yield put({ type: 'REGISTRATION_FAILED' });
+  }
+}
+
 function* registrationSaga() {
   yield takeLatest('REGISTER', registerUser);
+  yield takeLatest('GET_ACCESS', accessLevelReg);
 }
 
 export default registrationSaga;
