@@ -13,7 +13,7 @@ class LoginPage extends Component {
         <center>
           <Button
             variant="contained"
-            color="primary"
+            color="inherit"
             type="button"
             className="btn btn_asLink"
             onClick={() => {

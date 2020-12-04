@@ -4,43 +4,7 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import { Grid } from '@material-ui/core';
 import RestaurantItem from '../../components/RestaurantItem/RestaurantItem';
 
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace
-// the component name TemplateClass with the name for the new
-// component.
-
-const baseMap = {
-  type: 'raster',
-  tiles: ['http://tile.stamen.com/toner/{z}/{x}/{y}.png'],
-  tileSize: 256,
-  attribution:
-    'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
-};
-
 class RestaurantList extends Component {
-  state = {
-    viewport: {
-      latitude: 39.099724,
-      longitude: -94.578331,
-      zoom: 12,
-      bearing: 0,
-      pitch: 0,
-    },
-    style: {
-      version: 8,
-      sources: baseMap,
-      layers: [
-        {
-          id: 'stamentoner',
-          type: 'raster',
-          source: baseMap,
-          minzoom: 0,
-          maxzoom: 22,
-        },
-      ],
-    },
-  };
-
   componentDidMount() {
     console.log('HELLO');
     this.props.dispatch({
@@ -81,10 +45,10 @@ class RestaurantList extends Component {
     );
     return (
       <div>
-        <div>
+        {/* <div>
           <input type="text" onChange={this.onChange('search_string')}></input>
           <button onClick={this.search}>Search</button>
-        </div>
+        </div> */}
         <div style={{ padding: 20 }}>
           <Grid
             container

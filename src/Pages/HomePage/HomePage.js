@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import MapBoxComponent from '../../components/MapBoxComponent/MapBoxComponent';
-import { Grid, Button } from '@material-ui/core';
+import { Grid, Button, Paper } from '@material-ui/core';
 import RestaurantItem from '../../components/RestaurantItem/RestaurantItem';
+// const backgroundPhoto = require('./kenny-luo-7IiPopynx18-unsplash.jpg');
 
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace
-// the component name TemplateClass with the name for the new
-// component.
+// const styles = {
+//   paperContainer: {
+//     backgroundImage: `url(${backgroundPhoto})`,
+//   },
+// };
+
 class HomePage extends Component {
   state = {};
 
@@ -41,6 +44,9 @@ class HomePage extends Component {
 
     return (
       <div style={{ padding: 20 }}>
+        {/* <Paper>
+          <img src={backgroundPhoto} alt="custom markers" />
+        </Paper> */}
         <Grid
           container
           spacing={6}

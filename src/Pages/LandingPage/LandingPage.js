@@ -1,15 +1,16 @@
+import './LandingPage.css';
+import RegisterForm from '../../components/RegisterForm/RegisterForm';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-
-import './LandingPage.css';
+import { Grid, Button, Paper } from '@material-ui/core';
+const backgroundPhoto = require('./kenny-luo-7IiPopynx18-unsplash.jpg');
 
 // CUSTOM COMPONENTS
-import RegisterForm from '../../components/RegisterForm/RegisterForm';
 
 class LandingPage extends Component {
   state = {
-    heading: 'Class Component',
+    heading: 'Welcome to COVID Restaurant Reviews!',
   };
 
   onLogin = (event) => {
@@ -23,6 +24,9 @@ class LandingPage extends Component {
 
         <div className="grid">
           <div className="grid-col grid-col_8"></div>
+          <Grid>
+            <img src={backgroundPhoto} width="800" height="600" alt="tables" />
+          </Grid>
           <div className="grid-col grid-col_4">
             <RegisterForm />
 

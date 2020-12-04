@@ -19,9 +19,11 @@ import {
   AccordionSummary,
   AccordionDetails,
 } from '@material-ui/core';
-import ReactMapGL from 'react-map-gl';
+import ReactMapGL, { Marker } from 'react-map-gl';
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
+
+const markerIcon = require('../../components/MapBoxComponent/mapbox-icon.png');
 
 const baseMap = {
   type: 'raster',
@@ -78,6 +80,19 @@ class DetailsPage extends Component {
 
   render() {
     const restaurantDetails = this.props.store.restaurantDetailsReducer;
+
+    const newMarker = this.props.store.restaurantReducer.map(
+      (restaurant, index) => (
+        <Marker
+          key={index}
+          longitude={restaurant.longitude}
+          latitude={restaurant.latitude}
+        >
+          <img src={markerIcon} />
+        </Marker>
+      )
+    );
+
     const reviews = this.props.store.restaurantDetailsReducer.reviews.map(
       (item, review) => {
         return (
@@ -257,7 +272,9 @@ class DetailsPage extends Component {
               onViewportChange={(viewport) => this.setState({ viewport })}
               mapboxApiAccessToken={MAPBOX_TOKEN}
               onclick={this.clickMap}
-            />
+            >
+              {newMarker}
+            </ReactMapGL>
           </Grid>
           <Grid
             item

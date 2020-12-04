@@ -49,6 +49,8 @@ class RestaurantItem extends Component {
     this.props.history.push(`/details/${this.props.restaurants.id}`);
   };
 
+  handleEventClick = (event) => {};
+
   render() {
     const { restaurants } = this.props;
 
@@ -80,7 +82,7 @@ class RestaurantItem extends Component {
               mapboxApiAccessToken={MAPBOX_TOKEN}
               onclick={this.clickMap}
             >
-              <newMarker />
+              {newMarker}
             </ReactMapGL>
 
             <CardContent>
