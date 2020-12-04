@@ -3,7 +3,7 @@ import RegisterForm from '../../components/RegisterForm/RegisterForm';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import { Grid, Button, Paper } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 const backgroundPhoto = require('./kenny-luo-7IiPopynx18-unsplash.jpg');
 
 // CUSTOM COMPONENTS

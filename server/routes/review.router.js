@@ -25,9 +25,6 @@ router.get('/details/:id', (req, res) => {
     });
 });
 
-/**
- * GET route template
- */
 router.get('/', (req, res) => {
   // GET route code here
   pool
@@ -41,9 +38,6 @@ router.get('/', (req, res) => {
     });
 });
 
-/**
- * POST route template
- */
 router.post('/', (req, res) => {
   // POST route code here
   const newReview = req.body;

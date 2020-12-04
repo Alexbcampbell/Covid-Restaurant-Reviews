@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
-import CancelIcon from '@material-ui/icons/Cancel';
+// import CheckBoxIcon from '@material-ui/icons/CheckBox';
+// import CancelIcon from '@material-ui/icons/Cancel';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import Rating from '@material-ui/lab/Rating';
 import {
   Grid,
   Button,
-  Box,
   Typography,
-  List,
-  ListItem,
   ListItemText,
   Paper,
   Accordion,
@@ -88,7 +85,7 @@ class DetailsPage extends Component {
           longitude={restaurant.longitude}
           latitude={restaurant.latitude}
         >
-          <img src={markerIcon} />
+          <img src={markerIcon} alt="marker icon" />
         </Marker>
       )
     );

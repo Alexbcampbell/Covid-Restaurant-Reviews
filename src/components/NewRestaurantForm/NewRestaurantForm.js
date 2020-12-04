@@ -86,16 +86,6 @@ class NewRestaurantForm extends Component {
               value={this.state.newRestaurant.state}
               onChange={this.handleNewRestaurantChange('state')}
             />
-            {/* <InputLabel id="demo-simple-select-filled-label">State</InputLabel>
-            <Select
-              labelId="demo-simple-select-filled-label"
-              id="demo-simple-select-filled"
-              value={this.state.input}
-              onChange={this.handleNewRestaurantChange('state')}
-            >
-              <option>Missouri</option>
-              <option>Kansas</option>
-            </Select> */}
           </div>
           <div style={{ padding: 20 }}>
             <Box pt={1}>

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ReactMapGL, { Marker, Popup } from 'react-map-gl';
+import ReactMapGL, { Marker } from 'react-map-gl';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import {} from '@material-ui/core';
-// import MarkerComponent from './MarkerComponent';
 const markerIcon = require('./mapbox-icon.png');
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
@@ -73,14 +72,6 @@ class MapBoxComponent extends Component {
       this.forceUpdate();
     }
 
-    // // const latLongArray = [
-    // //   { long: -94.59433, lat: 38.97443 },
-    // //   { long: -94.59821, lat: 39.07897 },
-    // //   { long: -94.59104, lat: 39.04179 },
-    // //   { long: -94.595161, lat: 39.249088 },
-    // //   { long: -94.57325, lat: 39.24868 },
-    // // ];
-
     let size;
 
     if (this.state.viewport.zoom < 9) {
@@ -98,37 +89,11 @@ class MapBoxComponent extends Component {
           offsetTop={-size / 2}
           offsetLeft={-size / 2}
         >
-          <img src={markerIcon} />
+          <img src={markerIcon} alt="map Icon" />
         </Marker>
       )
     );
-    // const markerPoint = latLongArray.map((item, index) => {
-    //   return (
-    //     <Marker
-    //       longitude={item.long}
-    //       latitude={item.lat}
-    //       offsetTop={-size / 2}
-    //       offsetLeft={-size / 2}
-    //       key={index}
-    //     >
-    //       <img
-    //         src={markerIcon}
-    //         alt="custom markers"
-    //         style={{
-    //           width: size,
-    //           height: size,
-    //         }}
-    //       />
-    //       {/* <Popup
-    //         longitude={item.long}
-    //         latitude={item.lat}
-    //         offsetTop={-size / 2}
-    //         offsetLeft={-size / 2}
-    //         key={index}
-    //       ></Popup> */}
-    //     </Marker>
-    //   );
-    // });
+
     return (
       <ReactMapGL
         {...this.state.viewport}

@@ -61,7 +61,7 @@ class RestaurantItem extends Component {
           longitude={restaurant.longitude}
           latitude={restaurant.latitude}
         >
-          <img src={markerIcon} />
+          <img src={markerIcon} alt="marker icon" />
         </Marker>
       )
     );

@@ -16,10 +16,7 @@ function* getReviews(action) {
 
 function* updateReview(action) {
   try {
-    const response = yield axios.put(
-      `/api/reviews/${action.payload.reviewId}`,
-      action.payload
-    );
+    yield axios.put(`/api/reviews/${action.payload.reviewId}`, action.payload);
     yield put({
       type: 'GET_REVIEWS',
     });

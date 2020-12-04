@@ -45,10 +45,6 @@ class RestaurantList extends Component {
     );
     return (
       <div>
-        {/* <div>
-          <input type="text" onChange={this.onChange('search_string')}></input>
-          <button onClick={this.search}>Search</button>
-        </div> */}
         <div style={{ padding: 20 }}>
           <Grid
             container
