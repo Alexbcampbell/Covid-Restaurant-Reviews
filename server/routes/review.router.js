@@ -118,7 +118,7 @@ router.delete('/:id', (req, res) => {
 });
 
 const deleteReview = (queryText, queryArray) => {
-  pool
+  return pool
     .query(queryText, queryArray)
     .then((res) => {
       return;

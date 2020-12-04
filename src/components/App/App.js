@@ -99,14 +99,14 @@ class App extends Component {
             <ProtectedRoute
               // logged in shows NewRestaurantForm else shows LoginPage
               exact
-              path="/review"
+              path="/review/:id"
               component={ReviewPage}
             />
 
             <ProtectedRoute
               // logged in shows NewRestaurantForm else shows LoginPage
               exact
-              path="/edit"
+              path="/edit/:id/:reviewId"
               component={EditPage}
             />
 

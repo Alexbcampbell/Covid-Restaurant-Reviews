@@ -16,10 +16,12 @@ function* getReviews(action) {
 
 function* updateReview(action) {
   try {
-    const response = yield axios.put(`/api/reviews/${action.payload}`);
+    const response = yield axios.put(
+      `/api/reviews/${action.payload.reviewId}`,
+      action.payload
+    );
     yield put({
-      type: 'PUT_REVIEWS',
-      payload: response.data,
+      type: 'GET_REVIEWS',
     });
   } catch (err) {
     console.log('ERROR UPDATING REVIEW', err);
@@ -29,9 +31,10 @@ function* updateReview(action) {
 
 function* deleteReview(action) {
   try {
-    yield axios.delete(`/api/reviews/${action.payload}`);
+    yield axios.delete(`/api/reviews/${action.payload.reviewId}`);
     yield put({
-      type: 'SET_REVIEWS',
+      type: 'GET_DETAILS',
+      payload: action.payload.restaurantId,
     });
   } catch (err) {
     console.log('ERROR DELETING REVIEW', err);

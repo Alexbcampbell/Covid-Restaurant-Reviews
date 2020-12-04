@@ -46,7 +46,10 @@ class ReviewPage extends Component {
     event.preventDefault();
     this.props.dispatch({
       type: 'POST_REVIEW',
-      payload: this.state.newReview,
+      payload: {
+        ...this.state.newReview,
+        restaurantId: this.props.match.params.id,
+      },
     });
     this.setState({
       newReview: {
@@ -59,11 +62,11 @@ class ReviewPage extends Component {
         comments: '',
       },
     });
-    this.props.history.push('/details/:id');
+    this.props.history.push(`/details/${this.props.match.params.id}`);
   };
 
   onCancel = (event) => {
-    this.props.history.push('/details/:id');
+    this.props.history.push(`/details/${this.props.match.params.id}`);
   };
 
   render() {

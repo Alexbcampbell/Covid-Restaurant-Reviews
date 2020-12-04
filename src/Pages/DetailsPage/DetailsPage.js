@@ -64,18 +64,18 @@ class DetailsPage extends Component {
   }
 
   addReviewClick = (event) => {
-    this.props.history.push('/review');
+    this.props.history.push(`/review/${this.props.match.params.id}`);
   };
 
-  onDeleteClick = (event) => {
+  onDeleteClick = (event, reviewId) => {
     this.props.dispatch({
       type: 'DELETE_REVIEW',
-      payload: this.props.match.params.id,
+      payload: { restaurantId: this.props.match.params.id, reviewId },
     });
   };
 
-  onEditClick = (event) => {
-    this.props.history.push('/edit');
+  onEditClick = (event, reviewId) => {
+    this.props.history.push(`/edit/${this.props.match.params.id}/${reviewId}`);
   };
 
   render() {
@@ -225,7 +225,9 @@ class DetailsPage extends Component {
                         <Button
                           variant="contained"
                           color="inherit"
-                          onClick={this.onDeleteClick}
+                          onClick={(event) =>
+                            this.onDeleteClick(event, item.id)
+                          }
                         >
                           Delete
                         </Button>
@@ -236,7 +238,7 @@ class DetailsPage extends Component {
                         <Button
                           variant="contained"
                           color="inherit"
-                          onClick={this.onEditClick}
+                          onClick={(event) => this.onEditClick(event, item.id)}
                         >
                           Edit
                         </Button>

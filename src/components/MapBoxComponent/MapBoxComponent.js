@@ -73,13 +73,13 @@ class MapBoxComponent extends Component {
       this.forceUpdate();
     }
 
-    // const latLongArray = [
-    //   { long: -94.59433, lat: 38.97443 },
-    //   { long: -94.59821, lat: 39.07897 },
-    //   { long: -94.59104, lat: 39.04179 },
-    //   { long: -94.595161, lat: 39.249088 },
-    //   { long: -94.57325, lat: 39.24868 },
-    // ];
+    // // const latLongArray = [
+    // //   { long: -94.59433, lat: 38.97443 },
+    // //   { long: -94.59821, lat: 39.07897 },
+    // //   { long: -94.59104, lat: 39.04179 },
+    // //   { long: -94.595161, lat: 39.249088 },
+    // //   { long: -94.57325, lat: 39.24868 },
+    // // ];
 
     let size;
 
@@ -88,6 +88,7 @@ class MapBoxComponent extends Component {
     } else {
       size = (this.state.viewport.zoom - 5) ** 2 / 4 + 15;
     }
+
     const newMarker = this.props.store.restaurantReducer.map(
       (restaurant, index) => (
         <Marker

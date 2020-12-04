@@ -46,7 +46,11 @@ class EditPage extends Component {
     event.preventDefault();
     this.props.dispatch({
       type: 'UPDATE_REVIEW',
-      payload: this.state.newReview,
+      payload: {
+        ...this.state.newReview,
+        restaurantId: this.props.match.params.id,
+        reviewId: this.props.match.params.reviewId,
+      },
     });
     this.setState({
       newReview: {
@@ -59,11 +63,11 @@ class EditPage extends Component {
         comments: '',
       },
     });
-    this.props.history.push('/details/:id');
+    this.props.history.push(`/details/${this.props.match.params.id}`);
   };
 
   onCancel = (event) => {
-    this.props.history.push('/details/:id');
+    this.props.history.push(`/details/${this.props.match.params.id}`);
   };
 
   render() {
