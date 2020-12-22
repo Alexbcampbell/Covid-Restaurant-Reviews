@@ -24,7 +24,7 @@ class MapBoxComponent extends Component {
     viewport: {
       latitude: 39.099724,
       longitude: -94.578331,
-      zoom: 9,
+      zoom: 10,
       bearing: 0,
       pitch: 0,
     },
@@ -86,10 +86,14 @@ class MapBoxComponent extends Component {
           key={index}
           longitude={restaurant.longitude}
           latitude={restaurant.latitude}
-          offsetTop={-size / 2}
-          offsetLeft={-size / 2}
+          iconSize="small"
         >
-          <img src={markerIcon} alt="map Icon" />
+          <img
+            src={markerIcon}
+            // offsetTop={-size / 2}
+            // offsetLeft={-size / 2}
+            alt="map Icon"
+          />
         </Marker>
       )
     );

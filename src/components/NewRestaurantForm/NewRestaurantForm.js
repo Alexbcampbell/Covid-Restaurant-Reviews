@@ -86,6 +86,20 @@ class NewRestaurantForm extends Component {
               value={this.state.newRestaurant.state}
               onChange={this.handleNewRestaurantChange('state')}
             />
+            <TextField
+              id="outlined-basic"
+              label="Longitude"
+              variant="outlined"
+              value={this.state.newRestaurant.longitude}
+              onChange={this.handleNewRestaurantChange('longitude')}
+            />
+            <TextField
+              id="outlined-basic"
+              label="Latitude"
+              variant="outlined"
+              value={this.state.newRestaurant.latitude}
+              onChange={this.handleNewRestaurantChange('latitude')}
+            />
           </div>
           <div style={{ padding: 20 }}>
             <Box pt={1}>

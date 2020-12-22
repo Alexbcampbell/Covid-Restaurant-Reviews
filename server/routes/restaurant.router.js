@@ -21,13 +21,15 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   // POST route code here
   const newRestaurant = req.body;
-  const queryText = `INSERT INTO "restaurants" ("name", "street", "city", "state")
-    VALUES ($1, $2, $3, $4)`;
+  const queryText = `INSERT INTO "restaurants" ("name", "street", "city", "state", "longitude", "latitude")
+    VALUES ($1, $2, $3, $4, $5, $6)`;
   const queryValues = [
     newRestaurant.name,
     newRestaurant.street,
     newRestaurant.city,
     newRestaurant.state,
+    newRestaurant.longitude,
+    newRestaurant.latitude,
   ];
   pool
     .query(queryText, queryValues)
