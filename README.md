@@ -13,3 +13,32 @@ This application is geared towards those who may be at a higher risk for contrac
 Link to software that is required to install the app (e.g. node).
 
 - [Node.js](https://nodejs.org/en/)
+
+## Built With
+
+JavaScript
+React
+Redux
+Redux-Saga
+Axios
+Node.js
+Express
+PostgreSQL
+Material-UI
+Heroku
+MapBox GL API
+OpenCage API
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+_Note, include this only if you have a license file. GitHub will generate one for you if you want!_
+
+## Acknowledgement
+
+Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality.
+
+## Support
+
+If you have suggestions or issues, please email us: [Alex Campbell](alexbe.campbell@gmail.com)
