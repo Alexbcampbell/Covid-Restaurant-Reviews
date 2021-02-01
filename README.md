@@ -28,6 +28,7 @@ Review on Details Page:
 ![Screen Shot 2021-01-31 at 7 06 36 PM](https://user-images.githubusercontent.com/66644958/106404342-1af16900-63f8-11eb-836c-15d4156ad28d.png)
 
 Edit Review Form:
+![Screen Shot 2021-01-31 at 7 06 51 PM](https://user-images.githubusercontent.com/66644958/106404382-36f50a80-63f8-11eb-995f-f64c10a1052c.png)
 
 ### Prerequisites
 
